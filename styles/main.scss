@@ -1,1 +1,15 @@
-@import './base/fonts.scss', './base/tailwind.scss';
+@import "./base/tailwind.scss", "./fonts/fonts.scss", "./base/utilities.scss",
+  "./base/animations.scss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-size: 62.5%;
+  font-family: "Suisse Intl", sans-serif;
+}
+
+body {
+  @apply leading-[115%] -tracking-[3%];
+}
