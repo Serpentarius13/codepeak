@@ -1,9 +1,5 @@
 <template>
-  <main class="container">
-    <CommonButton variant="blue" size="medium"> Text </CommonButton>
-    <CommonButton variant="filled" size="medium"> Text </CommonButton>
-    <CommonButton variant="outline" size="small"> Text </CommonButton>
-  </main>
+  <MainHomeImageComponent />
 </template>
 
 <script setup lang="ts">

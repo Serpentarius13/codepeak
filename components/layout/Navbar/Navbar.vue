@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import { lockBody, unlockBody } from "~/features/utils/overflow";
 
-function checkInput(event: InputEvent) {
+function checkInput(event: Event) {
   const target = event.target as HTMLInputElement;
 
   if (target.checked) lockBody();

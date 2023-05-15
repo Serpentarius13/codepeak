@@ -1,5 +1,6 @@
 <template>
-
+  <MainHomeBannerComponent />
+  <MainHomeImageComponent />
 </template>
 
 <script setup lang="ts"></script>

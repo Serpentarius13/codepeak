@@ -1,16 +1,17 @@
 <template>
- 
-    <ul class="flex gap-[4rem] text-[1.7rem] text-white">
-      <li v-for="{ slug, text } in navLinks" :key="text">
-        <NuxtLink
-          :to="slug"
-          :class="$route.path.includes(slug) ? '' : 'opacity-30 hover:opacity-[40]'"
-        >
-          {{ text }}
-        </NuxtLink>
-      </li>
-    </ul>
-  
+  <ul class="flex gap-[4rem] text-[1.7rem] text-black">
+    <li v-for="{ slug, text } in navLinks" :key="text">
+      <NuxtLink
+        :to="slug"
+        :class="[
+          $route.path.includes(slug) && 'opacity-100',
+          'opacity-80  hover:opacity-[100]',
+        ]"
+      >
+        {{ text }}
+      </NuxtLink>
+    </li>
+  </ul>
 </template>
 
 <script setup lang="ts">
@@ -20,11 +21,10 @@ interface INavLink {
 }
 
 const navLinks: INavLink[] = [
-  { slug: "/courses", text: "мои курсы" },
-  { slug: "/trainer", text: "тренажер" },
-  { slug: "/chat", text: "чат с ментором" },
-  { slug: "/catalog", text: "каталог курсов" },
-  { slug: "/articles", text: "статьи" },
+  { slug: "/courses", text: "образовательные курсы" },
+  { slug: "/trainer", text: "тарифы и планы" },
+  { slug: "/chat", text: "платформа" },
+  { slug: "/catalog", text: "профориентация" },
 ];
 </script>
 

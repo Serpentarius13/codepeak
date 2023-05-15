@@ -6,6 +6,18 @@
   .form-component {
     @apply flex w-[56.4rem] max-w-[95vw] flex-col gap-[4.3rem] rounded-[2.6rem] border-[1px] border-white border-opacity-[15%] px-[3.6rem] py-[2rem] pt-[4.9rem];
   }
+
+  .huge-heading {
+    @apply text-[10.4rem] leading-[110%] -tracking-[0.5rem] text-black;
+  }
+
+  .text-big {
+    @apply text-[2.3rem] leading-[100%] -tracking-[1%];
+  }
+
+  .text-smallest {
+    @apply text-[1.4rem] leading-[100%] tracking-[0];
+  }
 }
 
 @layer utilities {

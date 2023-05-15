@@ -1,5 +1,5 @@
 <template>
-  <span class="text-[2.3rem] text-white -leading-[1%]"> XSLAB </span>
+  <span class="text-[2.3rem] black -leading-[1%]"> XSLAB </span>
 </template>
 
 <script setup lang="ts"></script>

@@ -1,6 +1,9 @@
 <template>
   <LayoutNavbar />
-  <slot />
+
+  <main>
+    <slot />
+  </main>
 </template>
 
 <script setup lang="ts"></script>

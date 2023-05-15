@@ -1,8 +1,8 @@
 <template>
   <section
-    class="max-w-[111rem] flex-1 px-[6rem] py-[4.3rem] flex flex-col gap-[4.6rem] w-full"
+    class="flex w-full max-w-[111rem] flex-1 flex-col gap-[4.6rem] px-[6rem] py-[4.3rem]"
   >
-    <div class="flex gap-[2rem] items-center">
+    <div class="flex items-center gap-[2rem]">
       <h2 class="subtitle">Задачи для выполнения</h2>
 
       <CommonNotification class="bg-white !text-black">
@@ -10,9 +10,9 @@
       </CommonNotification>
     </div>
 
-    <ul class="flex flex-col gap-[1.6rem] w-max-full">
+    <ul class="w-max-full flex flex-col gap-[1.6rem]">
       <li v-for="task in tasks" :key="task.id">
-        <MainTasksItem v-bind="task" />
+        <MainSharedTasksItem v-bind="task" />
       </li>
     </ul>
   </section>

@@ -1,5 +1,3 @@
-
-
 export type TLevel = "easy" | "medium" | "hard";
 export interface IRatingStars {
   level: TLevel;
@@ -9,4 +7,9 @@ export interface IRatingStars {
 export interface ITaskStat {
   stat: number | string;
   icon: string;
+}
+
+export interface IBannerTag {
+  text: string;
+  subtext: string;
 }

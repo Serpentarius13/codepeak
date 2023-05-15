@@ -11,5 +11,5 @@ html {
 }
 
 body {
-  @apply leading-[115%] -tracking-[3%];
+  @apply leading-[115%] -tracking-[3%] overflow-x-hidden;
 }
