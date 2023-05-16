@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 
-import { ITaskStat } from '~/features/types/shared';
+import { ITaskStat } from '~/features/types/shared.types';
 
 
 defineProps<ITaskStat>();

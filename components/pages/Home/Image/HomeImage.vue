@@ -27,7 +27,6 @@ const coordsListener = (e: MouseEvent) => {
 onMounted(() => {
   if (!sceneRef.value || !viewerRef.value) return;
 
-  console.log("fired");
 
   sceneRef.value.addEventListener("mousemove", coordsListener);
 });

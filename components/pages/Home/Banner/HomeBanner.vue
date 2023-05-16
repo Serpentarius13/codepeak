@@ -17,18 +17,13 @@
       </div>
     </div>
 
-    <ul
-      class="flex w-full items-center justify-between md:flex-col md:gap-[2rem] md:items-start"
-    >
-      <li v-for="tag in tags" :key="tag.text">
-        <MainHomeBannerTag v-bind="tag" />
-      </li>
-    </ul>
+    <BannerTags />
   </section>
 </template>
 
-<script setup lang="ts">
-import { IBannerTag } from "~/features/types/shared";
+<script setup lang="tsx">
+import { tag } from "type-fest/source/opaque";
+import { IBannerTag } from "~/features/types/shared.types";
 
 const tags: IBannerTag[] = [
   { text: "Современно", subtext: "Топовые лекторы" },
@@ -36,6 +31,20 @@ const tags: IBannerTag[] = [
   { text: "Безопасно", subtext: "Госдеп не пройдет" },
   { text: "Уютно", subtext: "Атмосферные занятия" },
 ];
+
+const BannerTags = () => (
+  <ul class="flex w-full items-center justify-between md:flex-col md:items-start md:gap-[2rem]">
+    {tags.map(({ text, subtext }) => (
+      <li v-for="tag in tags" key={text}>
+        <div class="flex items-center gap-[1.6rem]">
+          <span class="text-big">{ text }</span>
+
+          <span class="text-smallest opacity-30">{ subtext }</span>
+        </div>
+      </li>
+    ))}
+  </ul>
+);
 </script>
 
 <style scoped lang="scss"></style>

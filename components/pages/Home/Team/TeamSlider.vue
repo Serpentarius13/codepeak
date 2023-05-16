@@ -53,7 +53,7 @@
 </template>
 
 <script setup lang="ts">
-import { ITeamSlide } from "~/features/types/shared";
+import { ITeamSlide } from "~/features/types/shared.types";
 
 import { gsap } from "gsap";
 
@@ -99,7 +99,6 @@ function handleGoRight() {
 }
 
 function handleKey(e: KeyboardEvent) {
-  console.log(e.key);
   switch (e.key) {
     case "ArrowRight" || "ArrowUp": {
       handleGoRight();
@@ -118,7 +117,6 @@ function handleClick(e: MouseEvent) {
 
   if (!slideRef.value) return;
 
-  console.log(target);
   if (
     slideRef.value === target ||
     target.classList.contains("shadowed") ||

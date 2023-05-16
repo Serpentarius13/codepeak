@@ -1,10 +1,10 @@
 @layer components {
   .container {
-    @apply mx-auto w-full max-w-[163rem] px-[3.4rem] 2xl:px-[3rem] lg:px-[2rem] md:px-[1.6rem] sm:px-[1.2rem];
+    @apply mx-auto w-full max-w-[163rem]  2xl:px-[2.6rem] lg:px-[2rem] md:px-[1.6rem] sm:px-[1.2rem];
   }
 
   .container-big {
-    @apply mx-auto w-full max-w-[185rem] px-[3.4rem] 2xl:px-[3rem] lg:px-[2rem] md:px-[1.6rem] sm:px-[1.2rem];
+    @apply mx-auto w-full max-w-[185rem]  2xl:px-[2.6rem] lg:px-[2rem] md:px-[1.6rem] sm:px-[1.2rem];
   }
 
   .form-component {
@@ -43,6 +43,18 @@
 @layer base {
   .borderline {
     @apply border-[1px] border-solid border-black;
+  }
+
+  .borderline-transparent {
+    @apply border-[1px] border-solid border-black border-opacity-[15%];
+  }
+
+  .borderline-white {
+    @apply border-[1.25px] border-solid border-white border-opacity-30;
+  }
+
+  .borderline-bottom-white {
+    @apply border-b-[1px] border-solid border-white border-opacity-30;
   }
 }
 

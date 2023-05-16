@@ -9,8 +9,8 @@
 </template>
 
 <script setup lang="ts">
-import { taskTierMap } from "~/features/constants/task-tier";
-import { TExperience } from "~/features/types/tasks";
+import { taskTierMap } from "~/features/constants/task-tier.constants";
+import { TExperience } from "~/features/types/tasks.types";
 
 defineProps<{ text: TExperience }>();
 </script>

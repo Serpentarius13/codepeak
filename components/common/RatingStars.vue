@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { IRatingStars, TLevel } from "~/features/types/shared";
+import { IRatingStars, TLevel } from "~/features/types/shared.types";
 
 interface IRating extends IRatingStars {
   isNotRenderingStars?: boolean;

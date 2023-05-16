@@ -1,7 +1,7 @@
 <template>
   <CommonInputError :error="error">
     <div
-      class="relative w-full border-b-[1px] border-b-white border-opacity-[15%]"
+      class="relative w-full borderline-transparent"
     >
       <input
         :class="[
@@ -59,7 +59,7 @@ function changeInputType() {
   else inputType.value = "password";
 }
 
-function handleInput(event: InputEvent) {
+function handleInput(event: Event) {
   const target = event.target as HTMLInputElement;
   emit("update:modelValue", target.value);
 }

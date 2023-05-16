@@ -7,11 +7,7 @@
     >
       <div class="flex items-start gap-[17.5rem] md:flex-col md:gap-[3rem]">
         <NuxtLink to="/">
-          <h3
-            class="heading border-b-[1px] border-solid border-white border-opacity-30 text-white"
-          >
-            XSLAB Courses
-          </h3>
+          <h3 class="heading borderline-bottom text-white">XSLAB Courses</h3>
         </NuxtLink>
 
         <nav>
@@ -50,10 +46,7 @@
         <div
           class="text-medium flex flex-col items-end gap-[1.8rem] text-white sm:items-start"
         >
-          <span
-            class="border-b-[1.25px] border-solid border-white border-opacity-[15%]"
-            >Пользовательское соглашение</span
-          >
+          <span class="borderline-bottom">Пользовательское соглашение</span>
 
           <a :href="`mailto:${email}`">
             {{ tel }}

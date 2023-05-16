@@ -38,7 +38,7 @@ const props = defineProps<{
   size: ButtonProps["size"];
 }>();
 
-console.log(props);
+
 </script>
 
 <style scoped lang="scss"></style>

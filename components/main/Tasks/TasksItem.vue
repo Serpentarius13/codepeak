@@ -39,8 +39,8 @@
 </template>
 
 <script setup lang="ts">
-import { ITaskStat } from "~/features/types/shared";
-import { ITask, TExperience } from "~/features/types/tasks";
+import { ITaskStat } from "~/features/types/shared.types";
+import { ITask, TExperience } from "~/features/types/tasks.types";
 
 interface ITaskItem extends ITask {}
 

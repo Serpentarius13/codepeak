@@ -24,13 +24,13 @@
     </nav>
 
     <div class="relative h-[95rem] w-screen md:h-[60rem]">
-      <MainHomeTeamSlider :slides="slides" />
+      <PagesHomeTeamSlider :slides="slides" />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ITeamSlide } from "~/features/types/shared";
+import { ITeamSlide } from '~/features/types/shared.types';
 
 type TNavTabType = "founders" | "teachers" | "vacancy" | "internship";
 

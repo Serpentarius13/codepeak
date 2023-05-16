@@ -1,7 +1,7 @@
 <template>
   <article class="flex h-full min-h-[67.6rem] flex-col gap-[1.8rem] bg-white">
     <div
-      class="text-medium borderline borderish flex w-full justify-between px-[3.4rem] py-[2.7rem]"
+      class="text-medium borderline-transparent flex w-full justify-between rounded-semi-big px-[3.4rem] py-[2.7rem]"
     >
       <h4 class="flex items-center gap-[2.4rem]">
         Подписка <span ref="subRef" class="block"> {{ name }} </span>
@@ -13,13 +13,13 @@
     </div>
 
     <div
-      class="borderline borderish flex flex-1 flex-col justify-between px-[3.2rem] py-[3.5rem]"
+      class="borderline-transparent flex flex-1 flex-col justify-between rounded-semi-big px-[3.2rem] py-[3.5rem]"
     >
       <div class="flex flex-col gap-[2.8rem]">
         <h5 class="heading-small">Чекаут</h5>
 
         <ul
-          class="borderline flex w-full flex-col gap-[1.8rem] border-l-0 border-r-0 border-opacity-30 py-[2.8rem]"
+          class="borderline-transparent flex w-full flex-col gap-[1.8rem] border-l-0 border-r-0 py-[2.8rem]"
         >
           <li v-for="pricing in pricings" :key="pricing.name">
             <Pricing v-bind="pricing" />
@@ -48,12 +48,14 @@
 </template>
 
 <script setup lang="tsx">
-import { ITariff, TTariffName } from "~/features/types/tariff";
+import { ITariff, TTariffName } from "~/features/constants/tariffs.constants";
 
 import { gsap } from "gsap";
 
-import calculateCommaPrice, { appendCommas } from "~/features/utils/calculateCommaPrice";
-import sleep from "~/features/utils/sleep";
+import calculateCommaPrice, {
+  appendCommas,
+} from "~/features/utils/calculateCommaPrice";
+
 import { Elastic } from "gsap";
 
 type TPricing = { name: string; price: ITariff["price"] };
@@ -91,21 +93,21 @@ const Pricing = ({ name, price }: TPricing) => (
 
 function animateValue(
   reffy: Ref<HTMLElement | null>,
-  duration: number = 0.8,
-  start: number = 0,
-  end: number | null = null
+  starting = props.price,
+  duration: number = 0.8
 ) {
   if (!reffy.value) return;
 
   const Cont = { val: 0 };
-  const textStarting = parseFloat(
-    reffy.value.textContent?.replace(",", "") as string
-  );
+
+
+
+  starting = parseFloat(String(starting).replaceAll(",", ""));
 
   gsap.to(Cont, {
     duration,
     roundProps: "val",
-    val: textStarting,
+    val: starting,
     onUpdate() {
       if (!reffy.value) return;
 
@@ -128,13 +130,9 @@ onMounted(() => {
 
 watch(props, () => {
   animateValue(priceRef);
-  animateValue(totalRef);
+  animateValue(totalRef, calculateCommaPrice(props.price, props.discount));
   animateRotate(subRef);
 });
 </script>
 
-<style scoped lang="scss">
-.borderish {
-  @apply rounded-semi-big border-opacity-30;
-}
-</style>
+<style scoped lang="scss"></style>

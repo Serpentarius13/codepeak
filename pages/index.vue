@@ -1,10 +1,10 @@
 <template>
-  <MainHomeBanner />
-  <MainHomeImage />
-  <MainHomeQualities class="mt-[9.6rem]" />
-  <MainHomePride class="mt-[22.3rem]" />
-  <MainHomeTeam class="mt-[16rem]" />
-  <MainHomeSubscriptions class="mt-[26.2rem]" />
+  <PagesHomeBanner />
+  <PagesHomeImage />
+  <PagesHomeQualities class="mt-[9.6rem]" />
+  <PagesHomePride class="mt-[22.3rem]" />
+  <PagesHomeTeam class="mt-[16rem]" />
+  <PagesHomeSubscriptions class="mt-[26.2rem]" />
 </template>
 
 <script setup lang="ts"></script>

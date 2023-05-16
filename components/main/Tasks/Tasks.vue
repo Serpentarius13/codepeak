@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { ITask } from "~/features/types/tasks";
+import { ITask } from "~/features/types/tasks.types";
 
 const tasks: ITask[] = [
   {

@@ -5,7 +5,7 @@
   >
     <div class="flex flex-col gap-[5rem]">
       <div
-        class="flex w-fit items-center justify-center rounded-[10rem] border-[1px] border-white border-opacity-[30%] px-[2.2rem] py-[1.1rem] text-[1.6rem]"
+        class="borderline-whute flex w-fit items-center justify-center rounded-[10rem] px-[2.2rem] py-[1.1rem] text-[1.6rem]"
       >
         <span class="w-full text-center">
           {{ tariffMap[name] }}
@@ -33,8 +33,9 @@
       <div class="flex items-center gap-[1.6rem]">
         <span
           class="text-big flex items-center justify-center rounded-[10rem] bg-white px-[3.2rem] py-[1.2rem] text-black"
-         
-        > {{price}} <CommonRuble/>  </span>
+        >
+          {{ price }} <CommonRuble />
+        </span>
 
         <span class="text-[1.5rem] opacity-30"> за месяц </span>
       </div>
@@ -51,7 +52,7 @@
 </template>
 
 <script setup lang="tsx">
-import { TTariffName, IColorTariff } from "~/features/types/tariff";
+import { TTariffName, IColorTariff } from "~/features/constants/tariffs.constants";
 
 import { makeEnding } from "~/features/utils/makeEnding";
 
@@ -63,7 +64,7 @@ const tariffMap: Record<TTariffName, string> = {
   Sunlight: "Топовый вариант",
 };
 
-const emit = defineEmits(["add"]);
+const emit = defineEmits<{(e: 'add', tariff: TTariffName): void}>();
 
 const props = defineProps<IColorTariff>();
 
