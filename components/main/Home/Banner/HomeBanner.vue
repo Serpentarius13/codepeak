@@ -1,12 +1,12 @@
 <template>
   <section
-    class="flex min-h-[73rem] w-screen flex-col justify-between px-[3.6rem] pb-[3.2rem] pt-[12rem]"
+    class="flex min-h-[73rem] w-screen flex-col justify-between px-[3.6rem] pb-[3.2rem] pt-[3.4rem] lg:px-[1.6rem]"
   >
     <div class="container">
       <div class="flex max-w-[105rem] flex-col gap-[4rem]">
-        <h1 class="huge-heading">Поднимаем уровень IT образования в России</h1>
+        <h1 class="heading-huge">Поднимаем уровень IT образования в России</h1>
 
-        <div class="flex items-center gap-[1.5rem]">
+        <div class="flex items-center gap-[1.5rem] md:flex-col md:items-start">
           <CommonButton variant="blue" size="medium"
             >Тарифы обучения</CommonButton
           >
@@ -17,7 +17,9 @@
       </div>
     </div>
 
-    <ul class="flex w-full items-center justify-between">
+    <ul
+      class="flex w-full items-center justify-between md:flex-col md:gap-[2rem] md:items-start"
+    >
       <li v-for="tag in tags" :key="tag.text">
         <MainHomeBannerTag v-bind="tag" />
       </li>

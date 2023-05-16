@@ -1,8 +1,8 @@
 <template>
   <div
-    class="flex-cole fixed left-0 top-0 flex h-screen w-screen bg-darkest-black p-[8rem] text-[2rem] text-white z-[400]"
+    class="absolute left-0 top-0 bg-white z-[2] flex h-screen w-screen p-[8rem] text-[2rem] text-white"
   >
-    <LayoutNavbarLinks class="flex-col gap-[1rem] w-full h-full" />
+    <LayoutNavbarLinks class="h-full w-full flex-col gap-[1rem]" />
   </div>
 </template>
 

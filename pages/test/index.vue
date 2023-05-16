@@ -1,5 +1,5 @@
 <template>
-  <MainHomeImageComponent />
+  <MainHomeQualities />
 </template>
 
 <script setup lang="ts">

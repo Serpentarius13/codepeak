@@ -4,3 +4,7 @@
   margin-bottom: 0;
 }
 
+.nuxt-icon.nuxt-icon--fill.nuxt-icon.nuxt-icon--fill,
+.nuxt-icon.nuxt-icon--fill.nuxt-icon.nuxt-icon--fill * {
+  fill: none !important;
+}

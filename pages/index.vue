@@ -1,6 +1,6 @@
 <template>
-  <MainHomeBannerComponent />
-  <MainHomeImageComponent />
+  <MainHomeBanner />
+  <MainHomeImage />
 </template>
 
 <script setup lang="ts"></script>

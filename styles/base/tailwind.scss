@@ -3,16 +3,32 @@
     @apply mx-auto w-full max-w-[163rem] px-[3.4rem] 2xl:px-[3rem] lg:px-[2rem] md:px-[1.6rem] sm:px-[1.2rem];
   }
 
+  .container-big {
+    @apply mx-auto w-full max-w-[185rem] px-[3.4rem] 2xl:px-[3rem] lg:px-[2rem] md:px-[1.6rem] sm:px-[1.2rem];
+  }
+
   .form-component {
     @apply flex w-[56.4rem] max-w-[95vw] flex-col gap-[4.3rem] rounded-[2.6rem] border-[1px] border-white border-opacity-[15%] px-[3.6rem] py-[2rem] pt-[4.9rem];
   }
 
-  .huge-heading {
-    @apply text-[10.4rem] leading-[110%] -tracking-[0.5rem] text-black;
+  .heading-huge {
+    @apply text-[10.4rem] leading-[110%] -tracking-[0.5rem] lg:text-[8rem] md:text-[6.8rem] sm:text-[5rem];
+  }
+
+  .heading {
+    @apply text-[5.8rem] leading-[120%] -tracking-[0.48px];
+  }
+
+  .text-biggest {
+    @apply text-[2.8rem] leading-[135%] -tracking-[0.16px];
   }
 
   .text-big {
-    @apply text-[2.3rem] leading-[100%] -tracking-[1%];
+    @apply text-[2.3rem] leading-[100%] -tracking-[0.16px];
+  }
+
+  .text-medium {
+    @apply text-[1.8rem] leading-[145%] -tracking-[0.16px];
   }
 
   .text-smallest {

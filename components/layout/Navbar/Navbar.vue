@@ -1,8 +1,11 @@
 <template>
-  <header class="flex min-h-[8.6rem] w-full items-center justify-center">
+
+  <header
+    class="sticky top-0 flex min-h-[8.6rem] w-full items-center justify-center bg-white z-[100]"
+  >
     <div class="container flex justify-between">
       <div class="flex items-center gap-[1.4rem]">
-        <CommonLogo />
+        <NuxtLink to="/"> <CommonLogo /> </NuxtLink>
 
         <!-- select -->
       </div>
@@ -20,20 +23,36 @@
         <span />
         <span />
       </label>
-      <LayoutNavbarMobile class="nav-mobile hidden lg:flex" />
     </div>
+
+    <LayoutNavbarMobile
+    :style="burgerMenuStyleComputed"
+    class="nav-mobile transition-standard hidden lg:flex"
+  />
   </header>
 </template>
 
 <script setup lang="ts">
 import { lockBody, unlockBody } from "~/features/utils/overflow";
 
-function checkInput(event: Event) {
-  const target = event.target as HTMLInputElement;
+const isBurgerOpened = ref<boolean>(false);
 
-  if (target.checked) lockBody();
+function checkInput(event: Event) {
+  const { checked } = event.target as HTMLInputElement;
+
+  if (checked) lockBody();
   else unlockBody();
+
+  isBurgerOpened.value = checked;
 }
+
+const burgerMenuStyleComputed = computed<{
+  opacity: number;
+  transform: string;
+}>(() => {
+  if (isBurgerOpened.value) return { opacity: 1, transform: "translate(0)" };
+  else return { opacity: 0, transform: "translateX(-100%)" };
+});
 </script>
 
 <style scoped lang="scss">
@@ -44,7 +63,7 @@ function checkInput(event: Event) {
       @apply flex;
     }
     span {
-      @apply w-[2rem] border-b-2 border-white transition-all;
+      @apply w-[2rem] border-b-2 border-black transition-all;
     }
 
     input:checked ~ span {
@@ -61,17 +80,6 @@ function checkInput(event: Event) {
         @apply translate-y-full rotate-180 opacity-0;
       }
     }
-  }
-
-  &-mobile {
-    opacity: 0;
-    transform: translateX(-100%);
-    transition: 0.25s ease all;
-  }
-
-  &-burger:has(input:is(:checked)) + &-mobile {
-    opacity: 1;
-    transform: translate(0);
   }
 }
 </style>
