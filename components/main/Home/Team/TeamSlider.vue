@@ -1,5 +1,5 @@
 <template>
-  <div class="relative h-[95rem] w-screen">
+  <div class="relative h-[95rem] w-screen md:h-[60rem]">
     <div
       class="h-full w-full"
       :style="{
@@ -9,7 +9,7 @@
       ref="slideRef"
     >
       <div
-        class="absolute bottom-[6%] left-[3.6rem] flex flex-col gap-[1rem] text-white"
+        class="absolute bottom-[6%] left-[3.6rem] flex flex-col gap-[1rem] text-white md:bottom-[20%] text-black"
       >
         <h3 class="heading">
           {{ slides[currentSlide].name }}
@@ -20,7 +20,9 @@
       </div>
     </div>
 
-    <ul class="absolute bottom-[6%] right-[3.6rem] z-[5] flex gap-[2.6rem]">
+    <ul
+      class="absolute bottom-[6%] right-[3.6rem] z-[5] flex gap-[2.6rem] md:gap-[1.8rem] sm:gap-[1.4rem]"
+    >
       <li v-for="(slide, ix) in slides" :key="slide.name">
         <button
           @click="() => handleSetSlide(ix)"

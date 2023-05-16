@@ -1,7 +1,7 @@
 <template>
   <LayoutNavbar />
 
-  <main>
+  <main >
     <slot />
   </main>
 </template>
