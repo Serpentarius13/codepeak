@@ -5,8 +5,8 @@
         Команда. Те, с кем вы пройдете сложный путь в IT
       </h2>
     </div>
-    <nav class="mb-[5.1rem]">
-      <ul class="container flex flex-wrap items-center justify-between">
+    <nav class="mb-[5.1rem] ">
+      <ul class="container flex flex-wrap items-center justify-between md:flex-col md:gap-[2rem] ">
         <li v-for="tab in tabs" :key="tab.type">
           <button
             @click="handleSetTab(tab.type)"

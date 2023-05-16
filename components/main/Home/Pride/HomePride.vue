@@ -5,7 +5,7 @@
     <NuxtImg
       src="/img/platform-video.png"
       alt="XSLAB платформа"
-      class="h-full flex-1 rounded-semi-big w-full"
+      class="h-full flex-1 rounded-semi-big w-full w-screen"
     />
 
     <div
@@ -41,7 +41,7 @@ const perks: string[] = [
 ];
 
 const Perks = () => (
-  <ul class="max-w-screen flex w-[35.5rem] flex-col gap-[4rem]">
+  <ul class="max-w-[95vw] flex w-[35.5rem]  flex-col gap-[4rem]">
     {perks.map((perk, ix) => (
       <li key={ix} class="grid grid-cols-[0.1fr_1fr] items-center gap-[2.2rem]">
         <div class="borderline text-big  block flex aspect-square w-[3.6rem] items-center justify-center rounded-full">

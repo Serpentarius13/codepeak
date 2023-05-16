@@ -5,9 +5,9 @@
     </h2>
 
     <ul
-      class="flex h-[22rem] flex-wrap items-center gap-[2.4rem] 2xl:gap-[1.8rem] xl:gap-[1.6rem] md:flex-col md:flex-nowrap md:items-end"
+      class="flex min-h-[22rem] max-w-[95vw] flex-wrap items-center gap-[2.4rem] 2xl:gap-[1.8rem] xl:gap-[1.6rem] md:flex-col  md:items-end md:justify-center"
     >
-      <li v-for="quality in qualities" :key="quality.title">
+      <li v-for="quality in qualities" :key="quality.title" class="max-w-full">
         <Quality v-bind="quality" />
       </li>
 
@@ -20,7 +20,7 @@
 
             <NuxtIcon name="tasks/arrow" class="aspect-square w-[2rem] -rotate-45" />
           </div>
-          <p class="text-medium text-start">
+          <p class="text-medium text-start max-w-[90%]">
             Больше аргументов за то, чтобы остаться
           </p>
         </button>
@@ -45,10 +45,10 @@ const qualities: TQuality[] = [
 ];
 
 const Quality = ({ title, text }: TQuality) => (
-  <article class="max-w-screen flex w-[44.4rem] h-full flex-col gap-[3.2rem] py-[3.3rem] pl-[3.9rem] pr-[4.8rem]">
+  <article class="max-w-screen flex w-[44.4rem] md:max-w-[95vw] h-full flex-col gap-[3.2rem] py-[3.3rem] pl-[3.9rem] pr-[4.8rem] lg:p-0">
     <h5 class="text-biggest">{title}</h5>
 
-    <p class="text-medium max-w-[35.7rem]">{text}</p>
+    <p class="text-medium max-w-[35.7rem] md:max-w-[90vw]">{text}</p>
   </article>
 );
 </script>

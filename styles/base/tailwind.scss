@@ -16,7 +16,7 @@
   }
 
   .heading {
-    @apply text-[5.8rem] leading-[120%] -tracking-[0.48px];
+    @apply text-[5.8rem] leading-[120%] -tracking-[0.48px] md:text-[4rem];
   }
 
   .heading-small {

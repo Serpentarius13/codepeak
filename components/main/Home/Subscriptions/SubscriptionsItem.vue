@@ -1,6 +1,6 @@
 <template>
   <article
-    class="flex min-h-[67.6rem] max-w-[44.3rem] flex-col justify-between rounded-semi-big px-[4.3rem] py-[3.6rem]"
+    class="flex min-h-[67.6rem] max-w-[44.3rem] md:max-w-[95vw] md:px-[2rem] md:py-[3rem] flex-col justify-between md:gap-[2rem] rounded-semi-big px-[4.3rem] py-[3.6rem]"
     :style="{ backgroundColor: bgColor, color }"
   >
     <div class="flex flex-col gap-[5rem]">
@@ -12,7 +12,7 @@
         </span>
       </div>
 
-      <h4 class="pl-[1.1rem] text-[7.8rem] leading-[110%] -tracking-[0.8px]">
+      <h4 class="pl-[1.1rem] text-[7.8rem] leading-[110%] md:text-[5.5rem] -tracking-[0.8px]">
         {{ name }}
       </h4>
 
@@ -37,7 +37,7 @@
         <span class="text-[1.5rem] opacity-30"> за месяц </span>
       </div>
 
-      <div class="text-big flex items-center gap-[9rem]">
+      <div class="text-big flex items-center gap-[9rem] md:flex-col md:gap-[3rem] md:items-start">
         <button class="underline-span" @click="handleAdd">добавить</button>
 
         <button class="underline-span">подробнее</button>
