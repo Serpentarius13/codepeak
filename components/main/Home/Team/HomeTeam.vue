@@ -76,11 +76,11 @@ const slides: ITeamSlide[] = [
 </script>
 
 <style scoped lang="scss">
-.underlined {
-  text-decoration: underline 3px white;
-  transition: text-decoration-color 300ms;
+@import "~/styles/base/utilities.scss";
 
-  &:hover,
+.underlined {
+  @include underlined(white, black, 3);
+
   &-active {
     text-decoration-color: black;
   }

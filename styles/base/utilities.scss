@@ -4,3 +4,12 @@
   margin-bottom: 0;
 }
 
+@mixin underlined($initialColor, $toColor, $size) {
+  $sized: $size * 1px;
+  text-decoration: underline $sized $initialColor;
+  transition: text-decoration-color 300ms;
+
+  &:hover {
+    text-decoration-color: $toColor;
+  }
+}

@@ -1,5 +1,5 @@
 <template>
-  <MainHomeTeam />
+  <MainHomeSubscriptions />
 </template>
 
 <script setup lang="ts">
