@@ -19,4 +19,6 @@ export interface ITeamSlide {
   alt: string;
   name: string;
   position: string;
+  color: string;
+ 
 }

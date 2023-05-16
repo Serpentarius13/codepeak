@@ -1,18 +1,20 @@
 <template>
   <article
-    class="flex min-h-[67.6rem] max-w-[44.3rem] md:max-w-[95vw] md:px-[2rem] md:py-[3rem] flex-col justify-between md:gap-[2rem] rounded-semi-big px-[4.3rem] py-[3.6rem]"
+    class="flex min-h-[67.6rem] max-w-[44.3rem] flex-col justify-between rounded-semi-big px-[4.3rem] py-[3.6rem] md:max-w-[95vw] md:gap-[2rem] md:px-[2rem] md:py-[3rem]"
     :style="{ backgroundColor: bgColor, color }"
   >
     <div class="flex flex-col gap-[5rem]">
       <div
-        class="flex w-fit items-center justify-center rounded-[10rem] border-[1px] border-white border-opacity-[15%] px-[2.2rem] py-[1.1rem] text-[1.6rem]"
+        class="flex w-fit items-center justify-center rounded-[10rem] border-[1px] border-white border-opacity-[30%] px-[2.2rem] py-[1.1rem] text-[1.6rem]"
       >
         <span class="w-full text-center">
           {{ tariffMap[name] }}
         </span>
       </div>
 
-      <h4 class="pl-[1.1rem] text-[7.8rem] leading-[110%] md:text-[5.5rem] -tracking-[0.8px]">
+      <h4
+        class="pl-[1.1rem] text-[7.8rem] leading-[110%] -tracking-[0.8px] md:text-[5.5rem]"
+      >
         {{ name }}
       </h4>
 
@@ -29,15 +31,17 @@
 
     <div class="flex flex-col gap-[2.6rem]">
       <div class="flex items-center gap-[1.6rem]">
-        <MainHomeSubscriptionsPrice
-          :price="price"
+        <span
           class="text-big flex items-center justify-center rounded-[10rem] bg-white px-[3.2rem] py-[1.2rem] text-black"
-        />
+         
+        > {{price}} <CommonRuble/>  </span>
 
         <span class="text-[1.5rem] opacity-30"> за месяц </span>
       </div>
 
-      <div class="text-big flex items-center gap-[9rem] md:flex-col md:gap-[3rem] md:items-start">
+      <div
+        class="text-big flex items-center gap-[9rem] md:flex-col md:items-start md:gap-[3rem]"
+      >
         <button class="underline-span" @click="handleAdd">добавить</button>
 
         <button class="underline-span">подробнее</button>
@@ -48,6 +52,7 @@
 
 <script setup lang="tsx">
 import { TTariffName, IColorTariff } from "~/features/types/tariff";
+
 import { makeEnding } from "~/features/utils/makeEnding";
 
 type TPerk = { name: string; text: string };
@@ -72,8 +77,7 @@ const perks: TPerk[] = [
 ];
 
 function handleAdd() {
-
-  emit('add', props.name)
+  emit("add", props.name);
 }
 
 const Perk = ({ name, text }: TPerk) => (

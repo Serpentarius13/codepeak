@@ -5,8 +5,10 @@
         Команда. Те, с кем вы пройдете сложный путь в IT
       </h2>
     </div>
-    <nav class="mb-[5.1rem] ">
-      <ul class="container flex flex-wrap items-center justify-between md:flex-col md:gap-[2rem] ">
+    <nav class="mb-[5.1rem]">
+      <ul
+        class="container flex flex-wrap items-center justify-between md:flex-col md:gap-[2rem]"
+      >
         <li v-for="tab in tabs" :key="tab.type">
           <button
             @click="handleSetTab(tab.type)"
@@ -53,24 +55,21 @@ const slides: ITeamSlide[] = [
     position: "Генеральный директор",
     img: "/img/person.png",
     alt: "Фотография Сергея Есенина",
+    color: "black",
   },
   {
-    name: "Volvo",
-    position: "Маскот",
-    img: "/img/volvo.jpg",
-    alt: "Фотография Volvo",
+    name: "Райан Гослинг",
+    position: "Кнопкокрас",
+    img: "/img/gosling.webp",
+    alt: "Фотография лучшего",
+    color: "#fff",
   },
   {
-    name: "Сергей Есенин",
-    position: "Генеральный директор",
-    img: "/img/person.png",
-    alt: "Фотография Сергея Есенина",
-  },
-  {
-    name: "Volvo",
-    position: "Маскот",
-    img: "/img/volvo.jpg",
-    alt: "Фотография Volvo",
+    name: "Мадс Миккельсен",
+    position: "Режет людей",
+    img: "/img/mads.jpg",
+    alt: "!",
+    color: "#fff",
   },
 ];
 </script>

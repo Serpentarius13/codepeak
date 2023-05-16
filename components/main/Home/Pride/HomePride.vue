@@ -5,7 +5,7 @@
     <NuxtImg
       src="/img/platform-video.png"
       alt="XSLAB платформа"
-      class="h-full flex-1 rounded-semi-big w-full w-screen"
+      class="h-full flex-1 rounded-semi-big w-full"
     />
 
     <div

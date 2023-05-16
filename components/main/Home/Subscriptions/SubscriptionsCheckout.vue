@@ -1,11 +1,15 @@
 <template>
-  <article class="flex h-full flex-col gap-[1.8rem] bg-white min-h-[67.6rem] ">
+  <article class="flex h-full min-h-[67.6rem] flex-col gap-[1.8rem] bg-white">
     <div
       class="text-medium borderline borderish flex w-full justify-between px-[3.4rem] py-[2.7rem]"
     >
-      <h4>Подписка {{ name }}</h4>
+      <h4 class="flex items-center gap-[2.4rem]">
+        Подписка <span ref="subRef" class="block"> {{ name }} </span>
+      </h4>
 
-      <MainHomeSubscriptionsPrice :price="price" />
+      <div>
+        <span ref="priceRef"> {{ price }} </span> <CommonRuble />
+      </div>
     </div>
 
     <div
@@ -27,9 +31,12 @@
         <div class="text-big flex w-full items-center justify-between">
           <span> Итого </span>
 
-          <MainHomeSubscriptionsPrice
-            :price="calculateCommaPrice(price, discount)"
-          />
+          <div>
+            <span ref="totalRef">
+              {{ calculateCommaPrice(price, discount) }}
+            </span>
+            <CommonRuble />
+          </div>
         </div>
 
         <CommonButton variant="filled" size="small">
@@ -42,7 +49,12 @@
 
 <script setup lang="tsx">
 import { ITariff, TTariffName } from "~/features/types/tariff";
-import calculateCommaPrice from "~/features/utils/calculateCommaPrice";
+
+import { gsap } from "gsap";
+
+import calculateCommaPrice, { appendCommas } from "~/features/utils/calculateCommaPrice";
+import sleep from "~/features/utils/sleep";
+import { Elastic } from "gsap";
 
 type TPricing = { name: string; price: ITariff["price"] };
 
@@ -52,12 +64,22 @@ interface ISubscriptionCheckout {
   discount: ITariff["price"];
 }
 
+const priceRef = ref<HTMLElement | null>(null);
+const totalRef = ref<HTMLElement | null>(null);
+
+const subRef = ref<HTMLElement | null>(null);
+
 const props = defineProps<ISubscriptionCheckout>();
 
-const pricings = computed<TPricing[]>(() => [
-  { name: "Сумма заказа", price: props.price },
-  { name: "Скидка", price: props.discount },
-]);
+const price = ref(props.price);
+const discount = ref(props.discount);
+
+const pricings = computed<TPricing[]>(() => {
+  return [
+    { name: "Сумма заказа", price: props.price },
+    { name: "Скидка", price: props.discount },
+  ];
+});
 
 const Pricing = ({ name, price }: TPricing) => (
   <div class="text-medium flex w-full items-center justify-between">
@@ -66,6 +88,49 @@ const Pricing = ({ name, price }: TPricing) => (
     <span>{price}&#8381;</span>
   </div>
 );
+
+function animateValue(
+  reffy: Ref<HTMLElement | null>,
+  duration: number = 0.8,
+  start: number = 0,
+  end: number | null = null
+) {
+  if (!reffy.value) return;
+
+  const Cont = { val: 0 };
+  const textStarting = parseFloat(
+    reffy.value.textContent?.replace(",", "") as string
+  );
+
+  gsap.to(Cont, {
+    duration,
+    roundProps: "val",
+    val: textStarting,
+    onUpdate() {
+      if (!reffy.value) return;
+
+      reffy.value!.innerHTML = appendCommas(Cont.val);
+    },
+  });
+}
+
+function animateRotate(reffy: Ref<HTMLElement | null>) {
+  gsap.from(reffy.value, {
+    duration: 2,
+    ease: Elastic.easeOut,
+    rotate: "360deg",
+  });
+}
+
+onMounted(() => {
+  animateValue(priceRef);
+});
+
+watch(props, () => {
+  animateValue(priceRef);
+  animateValue(totalRef);
+  animateRotate(subRef);
+});
 </script>
 
 <style scoped lang="scss">

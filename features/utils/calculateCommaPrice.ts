@@ -5,12 +5,14 @@ export default function calculateCommaPrice(
   price = String(price);
   discount = String(discount);
 
-  console.log(price, discount);
-  const total = String(+price.replace(",", "") - +discount.replace(",", ""));
 
-  console.log(total);
+  const total = +price.replace(",", "") - +discount.replace(",", "");
 
-  const numAsString = total.toString();
+  return appendCommas(total);
+}
+
+export function appendCommas(total: number | string) {
+  const numAsString = String(total);
   const characters = numAsString.split("").reverse();
   let parts = [];
   for (let i = 0; i < characters.length; i += 3) {
@@ -24,3 +26,4 @@ export default function calculateCommaPrice(
 
   return parts.join(",");
 }
+

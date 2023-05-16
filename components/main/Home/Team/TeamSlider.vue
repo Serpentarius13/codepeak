@@ -9,7 +9,8 @@
       ref="slideRef"
     >
       <div
-        class="absolute bottom-[6%] left-[3.6rem] flex flex-col gap-[1rem] text-black md:bottom-[20%]"
+        class="absolute bottom-[6%] left-[3.6rem] flex flex-col gap-[1rem] md:bottom-[20%]"
+        :style="{ color: slides[currentSlide].color }"
       >
         <h3 class="heading">
           {{ slides[currentSlide].name }}
