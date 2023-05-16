@@ -1,5 +1,5 @@
 <template>
-  <MainHomeTeamSlider :slides="slides" />
+  <MainHomeTeam />
 </template>
 
 <script setup lang="ts">

@@ -1,7 +1,7 @@
 <template>
-  <div class="relative h-[95rem] w-screen md:h-[60rem]">
+  <KeepAlive>
     <div
-      class="h-full w-full"
+      class="h-full w-full brightness-100"
       :style="{
         background: `url('${slides[currentSlide].img}') 50% 0 / cover no-repeat`,
       }"
@@ -9,7 +9,7 @@
       ref="slideRef"
     >
       <div
-        class="absolute bottom-[6%] left-[3.6rem] flex flex-col gap-[1rem] text-white md:bottom-[20%] text-black"
+        class="absolute bottom-[6%] left-[3.6rem] flex flex-col gap-[1rem] text-black md:bottom-[20%]"
       >
         <h3 class="heading">
           {{ slides[currentSlide].name }}
@@ -19,76 +19,71 @@
         </span>
       </div>
     </div>
+  </KeepAlive>
+  <ul
+    class="absolute bottom-[6%] right-[3.6rem] z-[5] flex gap-[2.6rem] md:gap-[1.8rem] sm:gap-[1.4rem]"
+  >
+    <li v-for="(slide, ix) in slides" :key="slide.name">
+      <button
+        @click="() => handleSetSlide(ix)"
+        :class="[
+          ' aspect-square w-[5.2rem] rounded-full ring-white hover:ring-4',
+          ix === currentSlide && 'ring-4 ',
+        ]"
+      >
+        <NuxtImg
+          :src="slide.img"
+          :alt="`To slide with ${slide.name}`"
+          width="52"
+          height="52"
+          class="obejct-cover aspect-square w-[5.2rem] rounded-full"
+        />
+      </button>
+    </li>
+  </ul>
 
-    <ul
-      class="absolute bottom-[6%] right-[3.6rem] z-[5] flex gap-[2.6rem] md:gap-[1.8rem] sm:gap-[1.4rem]"
-    >
-      <li v-for="(slide, ix) in slides" :key="slide.name">
-        <button
-          @click="() => handleSetSlide(ix)"
-          :class="[
-            ' aspect-square w-[5.2rem] rounded-full hover:ring-4 hover:ring-white',
-            ix === currentSlide && 'borderline',
-          ]"
-        >
-          <NuxtImg
-            :src="slide.img"
-            :alt="`To slide with ${slide.name}`"
-            width="52"
-            height="52"
-            class="obejct-cover aspect-square w-[5.2rem] rounded-full"
-          />
-        </button>
-      </li>
-    </ul>
+  <div class="left shadowed">
+    <NuxtIcon name="tasks/arrow" />
+  </div>
 
-    <div class="left shadowed">
-      <NuxtIcon name="tasks/arrow" />
-    </div>
-
-    <div class="right shadowed">
-      <NuxtIcon name="tasks/arrow" />
-    </div>
+  <div class="right shadowed">
+    <NuxtIcon name="tasks/arrow" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ITeamSlide } from "~/features/types/shared";
-import sleep from "~/features/utils/sleep";
+
 import { gsap } from "gsap";
 
 const slideRef = ref<HTMLDivElement | null>(null);
 
 const currentSlide = ref<number>(0);
 
-const isShowingSlide = ref<boolean>(true);
-
 interface ITeamSlider {
   slides: ITeamSlide[];
 }
 
 function handleAnimation(slide: number) {
+  if (!slideRef.value) return;
   const tl = gsap.timeline();
+
   tl.to(slideRef.value, {
-    translateX: "-100%",
-    opacity: 0.4,
-    duration: 0.8,
-    ease: "rough",
+    filter: "brightness(0.5)",
+    duration: 0.7,
     onComplete: () => void (currentSlide.value = slide),
   });
 
   tl.to(slideRef.value, {
-    translateX: "100%",
-    duration: 0,
-    opacity: 4,
+    filter: "brightness(1)",
+    duration: 1,
   });
-
-  tl.to(slideRef.value, { translateX: "0%", opacity: 1, duration: 0.9 });
 }
 
 const props = defineProps<ITeamSlider>();
 
 function handleSetSlide(slide: number) {
+  if (currentSlide.value === slide) return;
   handleAnimation(slide);
 }
 
@@ -116,14 +111,25 @@ function handleKey(e: KeyboardEvent) {
 }
 
 function handleClick(e: MouseEvent) {
-  const { clientX: target } = e;
+  const { clientX: position } = e;
 
-  const halfOfScreen = window.innerWidth / 2;
+  const target = e?.target as HTMLElement;
 
-  if (target <= halfOfScreen) {
-    handleGoLeft();
-  } else {
-    handleGoRight();
+  if (!slideRef.value) return;
+
+  console.log(target);
+  if (
+    slideRef.value === target ||
+    target.classList.contains("shadowed") ||
+    target.closest("div")?.classList.contains("shadowed")
+  ) {
+    const halfOfScreen = window.innerWidth / 2;
+
+    if (position <= halfOfScreen) {
+      handleGoLeft();
+    } else {
+      handleGoRight();
+    }
   }
 }
 
