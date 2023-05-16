@@ -34,6 +34,10 @@
   .text-smallest {
     @apply text-[1.4rem] leading-[100%] tracking-[0];
   }
+
+  .borderline {
+    @apply border-[1px] border-solid border-black
+  }
 }
 
 @layer utilities {

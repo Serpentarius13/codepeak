@@ -1,5 +1,5 @@
 <template>
-  <MainHomeQualities />
+  <MainHomePride />
 </template>
 
 <script setup lang="ts">

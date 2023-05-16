@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     "@vue-macros/nuxt",
     "nuxt-icons",
     "@vee-validate/nuxt",
+    '@nuxt/image-edge'
   ],
 
   css: ["@/styles/main.scss"],

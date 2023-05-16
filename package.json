@@ -36,6 +36,7 @@
     "vue-loader": "^17.1.0"
   },
   "dependencies": {
+    "@nuxt/image-edge": "^1.0.0-28059208.2abef1b",
     "@nuxtjs/tailwindcss": "^6.6.7",
     "@pinia/nuxt": "^0.4.9",
     "@vee-validate/nuxt": "^4.9.1",

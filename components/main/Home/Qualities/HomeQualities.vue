@@ -45,7 +45,7 @@ const qualities: TQuality[] = [
 ];
 
 const Quality = ({ title, text }: TQuality) => (
-  <article class="max-w-screen flex w-[44.4rem] flex-col gap-[3.2rem] py-[3.3rem] pl-[3.9rem] pr-[4.8rem]">
+  <article class="max-w-screen flex w-[44.4rem] h-full flex-col gap-[3.2rem] py-[3.3rem] pl-[3.9rem] pr-[4.8rem]">
     <h5 class="text-biggest">{title}</h5>
 
     <p class="text-medium max-w-[35.7rem]">{text}</p>
