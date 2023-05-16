@@ -47,6 +47,7 @@
     "@vueuse/nuxt": "^10.1.0",
     "axios": "^1.4.0",
     "class-variance-authority": "^0.6.0",
+    "gsap": "^3.11.5",
     "nuxt-icons": "^3.2.1",
     "pinia": "^2.0.35",
     "prettier-plugin-tailwindcss": "^0.2.8",

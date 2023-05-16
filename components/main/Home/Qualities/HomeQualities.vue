@@ -18,7 +18,7 @@
           <div class="flex items-center gap-[0.6rem]">
             <h5 class="text-big">12</h5>
 
-            <NuxtIcon name="arrow-top-right" class="aspect-square w-[2rem]" />
+            <NuxtIcon name="tasks/arrow" class="aspect-square w-[2rem] -rotate-45" />
           </div>
           <p class="text-medium text-start">
             Больше аргументов за то, чтобы остаться

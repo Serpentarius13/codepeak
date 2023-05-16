@@ -13,3 +13,10 @@ export interface IBannerTag {
   text: string;
   subtext: string;
 }
+
+export interface ITeamSlide {
+  img: string;
+  alt: string;
+  name: string;
+  position: string;
+}

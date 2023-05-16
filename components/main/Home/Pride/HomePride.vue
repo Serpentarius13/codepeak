@@ -1,6 +1,6 @@
 <template>
   <section
-    class="container-big grid min-h-[115rem] grid-cols-[1fr_0.35fr]  gap-[6.4rem] xl:flex xl:flex-col"
+    class="container-big grid min-h-[115rem] grid-cols-[0.65fr_0.35fr]  gap-[6.4rem] xl:flex xl:flex-col"
   >
     <NuxtImg
       src="/img/platform-video.png"
@@ -21,7 +21,7 @@
         <Perks />
       </div>
 
-      <div class="flex flex-col gap-[2.6rem]">
+      <div class="flex flex-col gap-[2.6rem] pb-[6rem]">
         <CommonButton variant="blue" size="medium">
           Демо-режим платформы</CommonButton
         >
