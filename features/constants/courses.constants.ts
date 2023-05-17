@@ -1,4 +1,33 @@
-import { ICourse } from "../types/courses.types";
+import { ICourse, TDirection, TExperience, TLanguage, TRating } from "../types/courses.types";
+
+
+
+type TTypedMap<T extends string | symbol | number> = Record<T, string>;
+
+export const courseLanguageMap: TTypedMap<TLanguage> = {
+  javascript: "JavaScript",
+  csharp: "C#",
+  rust: "Rust",
+} as const;
+
+export const courseExperienceMap: TTypedMap<TExperience> = {
+  junior: "Для начинающих",
+  middle: "Немного опыта",
+  "middle+": "Для специалистов",
+} as const;
+
+export const courseDirectionMap: TTypedMap<TDirection> = {
+  backend: "Бэкенд разработка",
+  frontend: "Фронтенд разработка",
+  practic: "Практическое и полезное",
+  devops: "DevOps",
+} as const;
+
+export const courseRatingMap: TTypedMap<TRating> = {
+  basic: "Стандартный",
+  popular: "Популярный",
+  top: "Топовый",
+} as const;
 
 export const courses: ICourse[] = [
   {

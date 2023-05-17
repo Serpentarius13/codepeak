@@ -8,7 +8,7 @@
   >
     <div class="flex flex-col gap-[3.2rem] text-[1.6rem]">
       <div
-        class="flex items-center gap-[1.1rem] text-black opacity-40 hover:opacity-100 hover:text-white "
+        :class="['flex items-center gap-[1.1rem] text-black opacity-40 hover:opacity-100 ', bgColor && 'hover:text-white'] "
       >
         <NuxtIcon name="clock" />
 
@@ -24,12 +24,13 @@
       <p class="text-medium">Только по любой из подписок</p>
     </div>
 
-    <CardBottom :color="color" :bg-color="bgColor" />
+    <CardBottom :color="color ?? colors.black" :bg-color="bgColor ?? '#fff'" />
   </article>
 </template>
 
 <script setup lang="ts">
 import CardBottom from "~/components/common/reused/CardBottom.vue";
+import { colors } from "~/features/constants/colors.constants";
 import { IColoredCourse } from "~/features/types/courses.types";
 
 defineProps<IColoredCourse>();

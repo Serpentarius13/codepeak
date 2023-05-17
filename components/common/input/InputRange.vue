@@ -39,7 +39,7 @@ interface IRangeInput {
   max: string;
 }
 
-const emit = defineEmits(["min", "max"]);
+const emit = defineEmits<{min: [num: string], max: [num: string]}>();
 
 const props = defineProps<IRangeInput>();
 

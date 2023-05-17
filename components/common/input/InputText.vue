@@ -1,8 +1,6 @@
 <template>
   <CommonInputError :error="error">
-    <div
-      class="relative w-full borderline-transparent"
-    >
+    <div class="borderline-transparent relative w-full">
       <input
         :class="[
           'peer w-full border-none bg-transparent pb-[1.1rem] text-[1.9rem] font-medium text-white  focus:outline-none ',
@@ -10,7 +8,7 @@
         ]"
         :type="inputType"
         :placeholder="placeholder"
-        @input="handleInput"
+        v-model="model"
       />
 
       <NuxtIcon
@@ -45,8 +43,6 @@ interface ITextInput {
 
 const props = withDefaults(defineProps<ITextInput>(), { type: "text" });
 
-const emit = defineEmits(["update:modelValue"]);
-
 const inputType = ref<TInputType>(props.type);
 
 const iconNameComputed = computed<"input/eye-off" | "input/eye">(() => {
@@ -59,10 +55,7 @@ function changeInputType() {
   else inputType.value = "password";
 }
 
-function handleInput(event: Event) {
-  const target = event.target as HTMLInputElement;
-  emit("update:modelValue", target.value);
-}
+const model = defineModel();
 </script>
 
 <style scoped lang="scss"></style>

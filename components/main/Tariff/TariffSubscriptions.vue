@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import { TTariffName, tariffs } from "~/features/constants/tariffs.constants";
 
-const emit = defineEmits<{ (e: "add", tariff: TTariffName): void }>();
+const emit = defineEmits<{ add: [tariff: TTariffName] }>();
 
 function handleAdd(tariff: TTariffName) {
   emit("add", tariff);

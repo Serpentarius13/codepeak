@@ -1,7 +1,7 @@
 <template>
   <LayoutNavbar />
 
-  <main>
+  <main class="mt-[3rem]">
     <slot />
   </main>
 

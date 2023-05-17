@@ -4,10 +4,10 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@pinia/nuxt",
     "@nuxtjs/tailwindcss",
-    "@vue-macros/nuxt",
+
     "nuxt-icons",
     "@vee-validate/nuxt",
-    '@nuxt/image-edge'
+    "@nuxt/image-edge",
   ],
 
   css: ["@/styles/main.scss"],
@@ -16,4 +16,8 @@ export default defineNuxtConfig({
       apiBase: "http://localhost:7000/training",
     },
   },
+
+  vite: { vue: { script: { defineModel: true, propsDestructure: true } } },
+
+  experimental: { typedPages: true },
 });

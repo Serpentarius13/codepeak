@@ -31,3 +31,8 @@ export interface IColored {
   bgColor?: string;
   color?: string
 }
+
+export interface ITag {
+  name: string;
+  slug: string;
+}

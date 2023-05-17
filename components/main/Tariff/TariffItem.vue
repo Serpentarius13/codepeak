@@ -65,7 +65,7 @@ const tariffMap: Record<TTariffName, string> = {
   Sunlight: "Топовый вариант",
 };
 
-const emit = defineEmits<{ (e: "add", tariff: TTariffName): void }>();
+const emit = defineEmits<{ add: [tariff: TTariffName] }>();
 
 const props = defineProps<IColorTariff>();
 

@@ -1,7 +1,7 @@
-import { TExperience } from "../types/tasks.types";
+import { TRating} from "../types/courses.types";
 
-export const taskTierMap: Record<TExperience, string> = {
+export const taskTierMap: Record<TRating, string> = {
   basic: "Полезно",
-  "basic+": "Бесполезно ^^",
-  advanced: "Топ",
+  popular: "Бесполезно ^^",
+  top: "Топ",
 };

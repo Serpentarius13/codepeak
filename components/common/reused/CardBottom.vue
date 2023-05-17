@@ -13,7 +13,7 @@
 <script setup lang="ts">
 
 
-const emit = defineEmits<{(e: 'add'): void, (e: 'more-info'): void}>()
+const emit = defineEmits<{add: [], 'more-info': []}>()
 
 const props = defineProps<{bgColor?: string, color?: string}>()
 

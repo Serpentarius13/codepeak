@@ -60,7 +60,7 @@ interface ISelect {
 }
 
 const props = defineProps<ISelect>();
-const emit = defineEmits(["select"]);
+const emit = defineEmits<{select: [option: string]}>();
 
 const isSelectOpened = ref<boolean>(false);
 const selectRef = ref<HTMLDivElement | null>(null);
