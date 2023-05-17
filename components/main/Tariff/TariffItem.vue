@@ -21,13 +21,13 @@
       <ul class="grid w-full grid-cols-[0.7fr_1fr] gap-[4rem]">
         <li
           v-for="({ name, text }, ix) in perks"
-          :key="perk.name"
+          :key="name"
           :class="[ix === perks.length - 1 && 'col-span-2']"
         >
           <div class="flex flex-col gap-[0.4rem]">
             <span class="text-[1.5rem] opacity-30">{{ name }}</span>
 
-            <span class="text-big nowrap"> {{ text }}</span>
+            <p class="text-big nowrap max-w-full">{{ text }}</p>
           </div>
         </li>
       </ul>
@@ -95,9 +95,5 @@ function handleAdd() {
   --bg-color: v-bind(props.bgColor);
 
   @include underlined(var(--bg-color), #fff, 1);
-}
-
-.nowrap {
-  white-space: nowrap;
 }
 </style>

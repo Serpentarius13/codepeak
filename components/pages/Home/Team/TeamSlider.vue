@@ -54,8 +54,7 @@
 
 <script setup lang="ts">
 import { ITeamSlide } from "~/features/types/shared.types";
-
-import { gsap } from "gsap";
+import anime from "animejs";
 
 const slideRef = ref<HTMLDivElement | null>(null);
 
@@ -67,17 +66,38 @@ interface ITeamSlider {
 
 function handleAnimation(slide: number) {
   if (!slideRef.value) return;
-  const tl = gsap.timeline();
 
-  tl.to(slideRef.value, {
-    filter: "brightness(0.5)",
-    duration: 0.7,
-    onComplete: () => void (currentSlide.value = slide),
-  });
+  const brightness = {
+    value: 1,
+  };
 
-  tl.to(slideRef.value, {
-    filter: "brightness(1)",
-    duration: 1,
+  function setFilter() {
+    slideRef.value!.style.filter = `brightness(${brightness.value})`;
+  }
+
+  anime({
+    targets: brightness,
+    value: 0.7,
+    duration: 700,
+    easing: "linear",
+
+    update() {
+      setFilter();
+    },
+
+    complete() {
+      currentSlide.value = slide;
+      anime({
+        targets: brightness,
+        value: 1,
+        duration: 1000,
+        easing: "easeOutElastic",
+
+        update() {
+          setFilter();
+        },
+      });
+    },
   });
 }
 

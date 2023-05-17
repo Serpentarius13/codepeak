@@ -1,5 +1,5 @@
 <template>
-  <div class="container"><MainCourseItem v-bind="courses[0]" /></div>
+  <PagesCourseOverview />
 </template>
 
 <script setup lang="ts">

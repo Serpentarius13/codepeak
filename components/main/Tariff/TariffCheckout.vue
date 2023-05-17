@@ -54,13 +54,11 @@
 <script setup lang="ts">
 import { ITariff, TTariffName } from "~/features/constants/tariffs.constants";
 
-import { gsap } from "gsap";
+import anime from "animejs";
 
 import calculateCommaPrice, {
   appendCommas,
 } from "~/features/utils/calculateCommaPrice";
-
-import { Elastic } from "gsap";
 
 type TPricing = { name: string; price: ITariff["price"] };
 
@@ -98,23 +96,27 @@ function animateValue(
 
   starting = parseFloat(String(starting).replaceAll(",", ""));
 
-  gsap.to(Cont, {
-    duration,
-    roundProps: "val",
-    val: starting,
-    onUpdate() {
-      if (!reffy.value) return;
+  console.log(reffy.value);
 
-      reffy.value!.innerHTML = appendCommas(Cont.val);
+  anime({
+    targets: reffy.value,
+    innerText: [0, starting],
+    easing: "linear",
+    round: true,
+    update(a) {
+    
+      const value = a.animations[0].currentValue;
+      reffy.value!.innerHTML = appendCommas(value);
     },
   });
 }
 
 function animateRotate(reffy: Ref<HTMLElement | null>) {
-  gsap.from(reffy.value, {
-    duration: 2,
-    ease: Elastic.easeOut,
+  anime({
+    targets: reffy.value,
     rotate: "360deg",
+    duration: 2,
+    easing: "spring",
   });
 }
 
