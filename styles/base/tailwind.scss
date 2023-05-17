@@ -23,6 +23,10 @@
     @apply text-[3.2rem] leading-[110%] -tracking-[0.16px];
   }
 
+  .heading-smaller {
+    @apply text-[3.2rem] leading-[125%] -tracking-[0.32px];
+  }
+
   .text-biggest {
     @apply text-[2.8rem] leading-[135%] -tracking-[0.16px];
   }

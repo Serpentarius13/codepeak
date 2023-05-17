@@ -9,8 +9,12 @@
     <ul
       class="flex min-h-[22rem] w-full max-w-[95vw] flex-wrap items-center justify-end gap-[2.4rem] 2xl:gap-[1.8rem] xl:gap-[1.6rem] md:flex-col  md:items-start md:justify-center"
     >
-      <li v-for="quality in qualities" :key="quality.title" class="max-w-full">
-        <Quality v-bind="quality" />
+      <li v-for="{ title, text } in qualities" :key="title" class="max-w-full">
+        <article class="max-w-screen flex h-full w-[44.4rem] flex-col gap-[3.2rem] py-[3.3rem] pl-[3.9rem] pr-[4.8rem] lg:p-0 md:max-w-[95vw] borderline-transparent rounded-semi-big">
+          <h5 class="text-biggest">{{ title }}</h5>
+      
+          <p class="text-medium max-w-[35.7rem] md:max-w-[90vw]">{{ text }}</p>
+        </article>
       </li>
 
       <li class="md:w-full flex justify-end">
@@ -34,7 +38,7 @@
   </section>
 </template>
 
-<script setup lang="tsx">
+<script setup lang="ts">
 type TQuality = { title: string; text: string };
 
 const qualities: TQuality[] = [
@@ -49,13 +53,6 @@ const qualities: TQuality[] = [
   },
 ];
 
-const Quality = ({ title, text }: TQuality) => (
-  <article class="max-w-screen flex h-full w-[44.4rem] flex-col gap-[3.2rem] py-[3.3rem] pl-[3.9rem] pr-[4.8rem] lg:p-0 md:max-w-[95vw] borderline-transparent rounded-semi-big">
-    <h5 class="text-biggest">{title}</h5>
-
-    <p class="text-medium max-w-[35.7rem] md:max-w-[90vw]">{text}</p>
-  </article>
-);
 </script>
 
 <style scoped lang="scss"></style>

@@ -20,5 +20,9 @@ export interface ITeamSlide {
   name: string;
   position: string;
   color: string;
- 
+}
+
+export interface ICreatedAt {
+  createdAt: string;
+  updatedAt: string;
 }

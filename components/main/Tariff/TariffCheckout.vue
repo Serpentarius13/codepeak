@@ -21,8 +21,12 @@
         <ul
           class="borderline-transparent flex w-full flex-col gap-[1.8rem] border-l-0 border-r-0 py-[2.8rem]"
         >
-          <li v-for="pricing in pricings" :key="pricing.name">
-            <Pricing v-bind="pricing" />
+          <li v-for="{ name, price } in pricings" :key="name">
+            <div class="text-medium flex w-full items-center justify-between">
+              <span class="opacity-[40%]"> {{ name }} </span>
+
+              <span> {{ price }} <CommonRuble /></span>
+            </div>
           </li>
         </ul>
       </div>
@@ -47,7 +51,7 @@
   </article>
 </template>
 
-<script setup lang="tsx">
+<script setup lang="ts">
 import { ITariff, TTariffName } from "~/features/constants/tariffs.constants";
 
 import { gsap } from "gsap";
@@ -83,14 +87,6 @@ const pricings = computed<TPricing[]>(() => {
   ];
 });
 
-const Pricing = ({ name, price }: TPricing) => (
-  <div class="text-medium flex w-full items-center justify-between">
-    <span class="opacity-[40%]">{name}</span>
-
-    <span>{price}&#8381;</span>
-  </div>
-);
-
 function animateValue(
   reffy: Ref<HTMLElement | null>,
   starting = props.price,
@@ -99,8 +95,6 @@ function animateValue(
   if (!reffy.value) return;
 
   const Cont = { val: 0 };
-
-
 
   starting = parseFloat(String(starting).replaceAll(",", ""));
 

@@ -18,10 +18,13 @@ const buttonVariants = cva(
         filled:
           "bg-black !border-black text-white hover:bg-white hover:text-black",
         blue: "!border-blue bg-blue text-white hover:bg-white hover:text-blue",
+        transparent:
+          "borderline-transparent bg-white text-black hover:border-black hover:bg-black hover:text-white",
       },
       size: {
         small: "py-[1.4rem] rounded-[1.6rem] px-[3rem] text-[1.9rem]",
-        medium: "py-[2rem] px-[4.2rem] rounded-[10rem] text-[2.3rem]",
+        medium: "py-[2rem] px-[4.2rem] rounded-biggest text-big",
+        big: "py-[4rem] px-[5.5rem] rounded-big text-big",
       },
     },
     defaultVariants: {
@@ -37,8 +40,6 @@ const props = defineProps<{
   variant: ButtonProps["variant"];
   size: ButtonProps["size"];
 }>();
-
-
 </script>
 
 <style scoped lang="scss"></style>

@@ -5,7 +5,7 @@
   >
     <div class="flex flex-col gap-[5rem]">
       <div
-        class="borderline-whute flex w-fit items-center justify-center rounded-[10rem] px-[2.2rem] py-[1.1rem] text-[1.6rem]"
+        class="borderline-whute flex w-fit items-center justify-center rounded-biggest px-[2.2rem] py-[1.1rem] text-[1.6rem]"
       >
         <span class="w-full text-center">
           {{ tariffMap[name] }}
@@ -20,11 +20,15 @@
 
       <ul class="grid w-full grid-cols-[0.7fr_1fr] gap-[4rem]">
         <li
-          v-for="(perk, ix) in perks"
+          v-for="({ name, text }, ix) in perks"
           :key="perk.name"
           :class="[ix === perks.length - 1 && 'col-span-2']"
         >
-          <Perk v-bind="perk" />
+          <div class="flex flex-col gap-[0.4rem]">
+            <span class="text-[1.5rem] opacity-30">{{ name }}</span>
+
+            <span class="text-big nowrap"> {{ text }}</span>
+          </div>
         </li>
       </ul>
     </div>
@@ -32,7 +36,7 @@
     <div class="flex flex-col gap-[2.6rem]">
       <div class="flex items-center gap-[1.6rem]">
         <span
-          class="text-big flex items-center justify-center rounded-[10rem] bg-white px-[3.2rem] py-[1.2rem] text-black"
+          class="text-big flex items-center justify-center rounded-biggest bg-white px-[3.2rem] py-[1.2rem] text-black"
         >
           {{ price }} <CommonRuble />
         </span>
@@ -51,8 +55,11 @@
   </article>
 </template>
 
-<script setup lang="tsx">
-import { TTariffName, IColorTariff } from "~/features/constants/tariffs.constants";
+<script setup lang="ts">
+import {
+  TTariffName,
+  IColorTariff,
+} from "~/features/constants/tariffs.constants";
 
 import { makeEnding } from "~/features/utils/makeEnding";
 
@@ -64,7 +71,7 @@ const tariffMap: Record<TTariffName, string> = {
   Sunlight: "Топовый вариант",
 };
 
-const emit = defineEmits<{(e: 'add', tariff: TTariffName): void}>();
+const emit = defineEmits<{ (e: "add", tariff: TTariffName): void }>();
 
 const props = defineProps<IColorTariff>();
 
@@ -80,14 +87,6 @@ const perks: TPerk[] = [
 function handleAdd() {
   emit("add", props.name);
 }
-
-const Perk = ({ name, text }: TPerk) => (
-  <div class="flex flex-col gap-[0.4rem]">
-    <span class="text-[1.5rem] opacity-30">{name}</span>
-
-    <span class="text-big nowrap "> {text}</span>
-  </div>
-);
 </script>
 
 <style scoped lang="scss">

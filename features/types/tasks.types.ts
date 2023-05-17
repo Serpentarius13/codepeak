@@ -1,5 +1,4 @@
-export type TExperience = "basic" | "advanced" | 'basic+';
-
+import { TRating } from "./courses.types";
 export interface IStatistics {
   views: number;
   completed: number;
@@ -11,7 +10,7 @@ export interface ITask {
   description: string;
   course: string;
   id: number;
-  experience: TExperience;
+  experience: TRating;
   statistic: IStatistics;
   rating: number;
 }

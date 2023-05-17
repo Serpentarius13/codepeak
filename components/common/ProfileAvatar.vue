@@ -6,7 +6,7 @@
       viewBox="0 0 40 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      class="rounded-[10rem]"
+      class="rounded-biggest"
     >
       <rect width="40" height="40" rx="20" fill="#7DDD9E" />
       <path
