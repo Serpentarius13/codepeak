@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -53,5 +55,7 @@ module.exports = {
       xs: { max: "400px" },
     },
   },
-  plugins: [],
+  plugins: [
+   
+  ],
 };
