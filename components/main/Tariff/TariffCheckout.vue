@@ -92,11 +92,7 @@ function animateValue(
 ) {
   if (!reffy.value) return;
 
-  const Cont = { val: 0 };
-
   starting = parseFloat(String(starting).replaceAll(",", ""));
-
-  console.log(reffy.value);
 
   anime({
     targets: reffy.value,
@@ -104,18 +100,18 @@ function animateValue(
     easing: "linear",
     round: true,
     update(a) {
-    
       const value = a.animations[0].currentValue;
       reffy.value!.innerHTML = appendCommas(value);
     },
   });
 }
 
-function animateRotate(reffy: Ref<HTMLElement | null>) {
+function animateRotate() {
   anime({
-    targets: reffy.value,
-    rotate: "360deg",
-    duration: 2,
+    targets: subRef.value,
+    rotate:
+      subRef.value?.style.transform == "rotate(360deg)" ? 0: 360,
+    duration: 2000,
     easing: "spring",
   });
 }
@@ -127,7 +123,7 @@ onMounted(() => {
 watch(props, () => {
   animateValue(priceRef);
   animateValue(totalRef, calculateCommaPrice(props.price, props.discount));
-  animateRotate(subRef);
+  animateRotate();
 });
 </script>
 

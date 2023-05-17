@@ -1,7 +1,7 @@
 <template>
   <article
     :class="[
-      'grid w-full grid-cols-[0.3fr_0.7fr] gap-[6.4rem] rounded-big ',
+      'grid w-full grid-cols-[0.3fr_0.7fr] gap-[6.4rem] xl:gap-[2rem] rounded-big lg:flex-col lg:flex ',
       !color && 'borderline-transparent',
     ]"
     :style="color && { backgroundColor: color, color: '#fff' }"
@@ -12,7 +12,7 @@
       alt="Заставка курса"
     />
 
-    <div class="flex w-full justify-between px-[6.4rem] py-[2.9rem]">
+    <div class="flex w-full justify-between px-[6.4rem] py-[2.9rem] xl:gap-[2rem] xl:px-[3.5rem] sm:flex-col">
       <div class="flex max-w-[29.7rem] flex-col gap-[1.6rem]">
         <div
           class="text-smallest flex items-center justify-center gap-[0.9rem] rounded-biggest bg-black px-[1.6rem] py-[1rem]"
@@ -28,7 +28,7 @@
         </h4>
       </div>
 
-      <div class="flex items-start gap-[7.1rem]">
+      <div class="flex items-start gap-[7.1rem] xl:gap-[3rem] md:flex-col">
         <MainCourseList name="Кураторы курса" :color="color">
           <li
             v-for="{ name, img } in authors"

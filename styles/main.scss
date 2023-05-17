@@ -19,3 +19,8 @@ html {
 body {
   @apply overflow-x-hidden  bg-white  text-black;
 }
+
+
+img {
+  @apply max-w-full block;
+}
