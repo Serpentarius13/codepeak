@@ -1,6 +1,10 @@
-import { ICourse, TDirection, TExperience, TLanguage, TRating } from "../types/courses.types";
-
-
+import {
+  ICourse,
+  TDirection,
+  TExperience,
+  TLanguage,
+  TRating,
+} from "../types/courses.types";
 
 type TTypedMap<T extends string | symbol | number> = Record<T, string>;
 
@@ -111,6 +115,8 @@ export const courses: ICourse[] = [
         updatedAt: "2023-05-11T10:05:07.885Z",
       },
     ],
+    subscription: "Spotlight",
+    duration: '1'
   },
   {
     id: 1,
@@ -193,6 +199,8 @@ export const courses: ICourse[] = [
         updatedAt: "2023-05-11T10:05:07.885Z",
       },
     ],
+    subscription: "Sunlight",
+    duration: '5'
   },
   {
     id: 1,
@@ -201,7 +209,7 @@ export const courses: ICourse[] = [
       "Мы приветствуем тебя на курсе C# разработчика. Мы сделали все, чтобы данный курс был максимально по душе вам!",
     query: "csharp-developer",
     lang: "javascript",
-    direction: "backend",
+    direction: 'frontend',
     rating: "basic",
     experience: "junior",
     graphic: ["labels"],
@@ -275,5 +283,7 @@ export const courses: ICourse[] = [
         updatedAt: "2023-05-11T10:05:07.885Z",
       },
     ],
+    subscription: "Dark",
+    duration: '12'
   },
 ];

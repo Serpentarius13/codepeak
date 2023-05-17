@@ -89,7 +89,7 @@ const rightStyleComputed = computed<{ right: string }>(() => {
   &__thumb {
     border: 1px solid rgba(33, 33, 33, 0.15);
 
-    @apply absolute z-[3] aspect-square w-[2.4rem] cursor-pointer rounded-full bg-white;
+    @apply absolute z-[3] aspect-square w-[2.4rem]  rounded-full bg-white;
 
     &::after {
       content: "";
@@ -119,6 +119,6 @@ input[type="range"] {
 input[type="range"]::-webkit-slider-thumb {
   pointer-events: all;
 
-  @apply aspect-square w-[3rem] cursor-pointer appearance-none border-r-0 border-none;
+  @apply aspect-square w-[3rem] cursor-e-resize appearance-none border-r-0 border-none;
 }
 </style>

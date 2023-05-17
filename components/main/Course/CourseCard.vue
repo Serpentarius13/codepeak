@@ -6,6 +6,7 @@
     ]"
     :style="{ color, backgroundColor: bgColor }"
   >
+  {{ JSON.stringify([subscription, direction, experience, duration]) }}
     <div class="flex flex-col gap-[3.2rem] text-[1.6rem]">
       <div
         :class="['flex items-center gap-[1.1rem] text-black opacity-40 hover:opacity-100 ', bgColor && 'hover:text-white'] "

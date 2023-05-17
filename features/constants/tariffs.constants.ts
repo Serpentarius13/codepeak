@@ -13,6 +13,8 @@ export interface ITariff {
 
 export interface IColorTariff extends ITariff, IColored {}
 
+
+
 export const tariffs: IColorTariff[] = [
   {
     name: "Dark",
