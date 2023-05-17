@@ -1,5 +1,5 @@
 <template>
-  <ClientOnly> <PagesCourseOverview /> </ClientOnly>
+  <ClientOnly> <PagesCoursePage/> </ClientOnly>
 </template>
 
 <script setup lang="ts">
