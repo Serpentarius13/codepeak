@@ -1,5 +1,5 @@
 <template>
-  <ClientOnly> <PagesCoursePage/> </ClientOnly>
+  <ClientOnly> <MainCourseCard v-for="course in courses" v-bind="course" bg-color="blue" color="white" :key="course.id" />  </ClientOnly>
 </template>
 
 <script setup lang="ts">

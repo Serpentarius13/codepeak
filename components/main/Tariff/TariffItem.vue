@@ -44,13 +44,7 @@
         <span class="text-[1.5rem] opacity-30"> за месяц </span>
       </div>
 
-      <div
-        class="text-big flex items-center gap-[9rem] md:flex-col md:items-start md:gap-[3rem]"
-      >
-        <button class="underline-span" @click="handleAdd">добавить</button>
-
-        <button class="underline-span">подробнее</button>
-      </div>
+      <CommonReusedCardBottom @add="handleAdd" :bg-color="bgColor" :color="props.color" />
     </div>
   </article>
 </template>
@@ -90,10 +84,5 @@ function handleAdd() {
 </script>
 
 <style scoped lang="scss">
-@import "~/styles/base/utilities.scss";
-.underline-span {
-  --bg-color: v-bind(props.bgColor);
 
-  @include underlined(var(--bg-color), #fff, 1);
-}
 </style>

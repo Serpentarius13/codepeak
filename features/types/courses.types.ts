@@ -1,4 +1,4 @@
-import { ICreatedAt } from "./shared.types";
+import { IColored, ICreatedAt } from "./shared.types";
 
 export type TLanguage = "javascript" | "c#" | "rust";
 export type TExperience = "junior" | "middle" | "senior";
@@ -32,3 +32,5 @@ export interface ICourse extends ICreatedAt {
   labels: string[];
   lessons: ILesson[];
 }
+
+export interface IColoredCourse extends ICourse, IColored {}

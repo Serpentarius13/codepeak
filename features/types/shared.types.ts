@@ -26,3 +26,8 @@ export interface ICreatedAt {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface IColored {
+  bgColor?: string;
+  color?: string
+}

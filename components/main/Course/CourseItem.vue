@@ -14,14 +14,11 @@
 
     <div class="flex w-full justify-between px-[6.4rem] py-[2.9rem] xl:gap-[2rem] xl:px-[3.5rem] sm:flex-col">
       <div class="flex max-w-[29.7rem] flex-col gap-[1.6rem]">
-        <div
-          class="text-smallest flex items-center justify-center gap-[0.9rem] rounded-biggest bg-black px-[1.6rem] py-[1rem]"
-          :style="{ color: color ?? '#fff' }"
-        >
-          <NuxtIcon name="tasks/energy" class="aspect-square w-[1.6rem]" />
+      
 
-          <span> Осталось 12 курсов </span>
-        </div>
+        <CommonReusedCardStatus :color="color">
+          Топовый курс
+        </CommonReusedCardStatus>
 
         <h4 class="heading-smaller">
           {{ name }}

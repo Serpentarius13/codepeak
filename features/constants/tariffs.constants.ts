@@ -1,3 +1,4 @@
+import { IColored } from "../types/shared.types";
 import { colors } from "./colors.constants";
 
 export type TTariffName = "Dark" | "Spotlight" | "Sunlight";
@@ -10,10 +11,7 @@ export interface ITariff {
   price: number | string;
 }
 
-export interface IColorTariff extends ITariff {
-  bgColor: string;
-  color: string;
-}
+export interface IColorTariff extends ITariff, IColored {}
 
 export const tariffs: IColorTariff[] = [
   {
