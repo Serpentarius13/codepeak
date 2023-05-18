@@ -1,9 +1,7 @@
 <template>
   <ClientOnly>
     <div class="container">
-   
-        <MainFormComponentsLogin/>
-    
+      <PagedProfileAchievements />
     </div>
   </ClientOnly>
 </template>

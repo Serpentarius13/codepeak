@@ -18,11 +18,4 @@ export default defineNuxtConfig({
   },
 
   vite: { vue: { script: { defineModel: true, propsDestructure: true } } },
-
-  experimental: { typedPages: true },
-
-  components: {
-    global: true,
-    dirs: ["~/components"],
-  },
 });

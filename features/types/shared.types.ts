@@ -45,3 +45,12 @@ export interface ITableRow {
   title: string;
   values: (ITableValue | string)[]
 }
+
+export interface IAchievement {
+  img: string;
+  alt: string;
+  min: number;
+  max: number;
+  progress: number;
+  title: string
+}

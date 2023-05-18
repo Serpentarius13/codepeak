@@ -39,6 +39,10 @@
     @apply text-[1.8rem] leading-[145%] -tracking-[0.16px];
   }
 
+  .text-small {
+    @apply text-[1.6rem] leading-[130%] -tracking-[0.16px]
+  }
+
   .text-smallest {
     @apply text-[1.4rem] leading-[100%] tracking-[0];
   }
