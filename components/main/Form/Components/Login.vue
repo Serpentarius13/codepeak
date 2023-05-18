@@ -3,24 +3,24 @@
     <form class="form-component" @submit.prevent="handleSubmit">
       <CommonInputText
         placeholder="Ваш емейл"
-        icon="input/sign-in"
+    
         v-model="email"
         :error="errors.email"
       />
       <CommonInputText
         placeholder="Пароль"
-        icon="input/lock"
+    
         type="password"
         v-model="password"
         :error="errors.password"
       />
 
       <div class="flex flex-col gap-[1rem]">
-        <CommonButton variant="filled" size="medium" class="w-full">
+        <CommonButton variant="blue" size="small" class="w-full">
           Авторизоваться
         </CommonButton>
 
-        <MainFormSocialButton icon="codepeak" text="Войти через CodePeak" />
+        <MainFormSocialButton icon="vk" text="Войти через Vk" />
 
         <MainFormSocialButton icon="google" text="Войти через Google" />
 

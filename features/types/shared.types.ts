@@ -36,3 +36,12 @@ export interface ITag {
   name: string;
   slug: string;
 }
+
+export interface ITableValue {
+  value: string;
+  isBad?: boolean
+}
+export interface ITableRow {
+  title: string;
+  values: (ITableValue | string)[]
+}

@@ -1,14 +1,14 @@
 <template>
   <CommonButton
     variant="outline"
-    size="medium"
+    size="small"
     class="group w-full text-[1.9rem] font-bold"
     type="button"
   >
     <div class="flex items-center gap-[1rem]">
       <NuxtIcon
         :name="icon"
-        class="text-white transition-all group-hover:text-black"
+        class="text-black transition-all group-hover:text-white w-[2.2rem]"
       />
 
       <span> {{ text }} </span>

@@ -21,13 +21,14 @@
       <CommonInputError :error="errors.date">
         <vue-date-picker
           placeholder="Дата рождения"
-          :dark="true"
+       
           locale="ru"
           :max-date="new Date('2011-01-01')"
           v-model="date"
           :enable-time-picker="false"
           :prevent-min-max-navigation="true"
           :start-date="new Date('2007-01-01')"
+          class="text-black"
         />
       </CommonInputError>
       <CommonInputText
@@ -42,8 +43,8 @@
 
       <div class="flex flex-col gap-[1rem]">
         <CommonButton
-          variant="filled"
-          size="medium"
+          variant="blue"
+          size="small"
           class="w-full"
           type="submit"
           >Зарегестрироваться</CommonButton
@@ -128,12 +129,13 @@ const onSubmit = handleSubmit((values) => {
 
 <style lang="scss">
 .dp__theme_dark {
-  --dp-background-color: #101010;
+  --dp-background-color: #212121;
 }
 
 :root {
-  --dp-border-radius: 4px;
-  --dp-font-size: 1.4rem;
+  --dp-border-radius: 32px;
+  --dp-font-size: 1.6rem;
+  --dp-font-color: black;
   --dp-font-family: "Suisse Intl", sans-serif;
 }
 </style>

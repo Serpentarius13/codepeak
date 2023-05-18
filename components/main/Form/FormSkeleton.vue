@@ -1,6 +1,6 @@
 <template>
   <section class="flex flex-col gap-[3rem]">
-    <h1 class="text-white text-[5.8rem] leading-[7rem]">
+    <h1 class="text-[5.8rem] leading-[7rem]">
       {{ formTitle }}
     </h1>
 
