@@ -8,7 +8,7 @@ export interface ITariff {
   coursesCount: number | string;
   advantage: string;
   description: string;
-  price: number | string;
+  price:string;
 }
 
 export interface IColorTariff extends ITariff, IColored {}

@@ -57,6 +57,7 @@ import calculateCommaPrice, {
   appendCommas,
 } from "~/features/utils/calculateCommaPrice";
 import { animateRotate } from "~/features/utils/animateRotate";
+import { animateValue } from "~/features/utils/animateValue";
 
 type TPricing = { name: string; price: ITariff["price"] };
 
@@ -83,37 +84,17 @@ const pricings = computed<TPricing[]>(() => {
   ];
 });
 
-function animateValue(
-  reffy: Ref<HTMLElement | null>,
-  starting = props.price,
-  duration: number = 0.8
-) {
-  if (!reffy.value) return;
-
-  starting = parseFloat(String(starting).replaceAll(",", ""));
-
-  anime({
-    targets: reffy.value,
-    innerText: [0, starting],
-    easing: "linear",
-    round: true,
-    update(a) {
-      const value = a.animations[0].currentValue;
-      reffy.value!.innerHTML = appendCommas(value);
-    },
-  });
-}
 
 
 
 onMounted(() => {
-  animateValue(priceRef);
+  animateValue(priceRef.value, props.price);
 });
 
 watch(props, () => {
-  animateValue(priceRef);
-  animateValue(totalRef, calculateCommaPrice(props.price, props.discount));
-  animateRotate(subRef.value as HTMLElement);
+  animateValue(priceRef.value, props.price);
+  animateValue(totalRef.value, calculateCommaPrice(props.price, props.discount));
+  animateRotate(subRef.value);
 });
 </script>
 

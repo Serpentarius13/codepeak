@@ -1,7 +1,7 @@
 <template>
   <LayoutNavbar />
 
-  <main class="mt-[3rem]">
+  <main class="mt-[3rem] min-h-screen">
     <slot />
   </main>
 

@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  @apply overflow-x-hidden  bg-white  text-black;
+  @apply overflow-x-hidden  bg-white  text-black relative;
 }
 
 

@@ -72,7 +72,7 @@ function toggleAchievements() {
 
 .v-enter-from,
 .v-leave-to {
-  @apply -translate-x-[10rem] -translate-y-[2rem] scale-125 opacity-0;
+  @apply -translate-x-[10rem] -translate-y-[2rem] scale-[1.1] opacity-0;
 }
 
 .v-enter-active,

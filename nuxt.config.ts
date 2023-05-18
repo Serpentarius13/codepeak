@@ -17,5 +17,13 @@ export default defineNuxtConfig({
     },
   },
 
-  vite: { vue: { script: { defineModel: true, propsDestructure: true } } },
+  vite: {
+    vue: {
+      script: {
+        defineModel: true,
+        propsDestructure: true
+      }
+    }
+  }
+
 });

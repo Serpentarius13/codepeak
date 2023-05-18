@@ -1,8 +1,9 @@
 <template>
   <ClientOnly>
-    <div class="container">
-      <PagedProfileAchievements />
-    </div>
+    <PagedProfileHeader class="mt-[11.6rem] sm:mt-[10rem]" />
+    <PagedProfileTariffs class="mt-[12rem] sm:mt-[3rem]" />
+
+   
   </ClientOnly>
 </template>
 
@@ -12,36 +13,12 @@ import { ITableRow } from "~/features/types/shared.types";
 
 const router = useRouter();
 
+definePageMeta({ layout: "profile-subs" });
+
 onMounted(() => {
   if (process.env.NODE_ENV !== "development") router.push("/");
 });
 
-const table: ITableRow[] = [
-  {
-    title: "Доступ к платформе с курсами",
-    values: ["Безлимитный", "Безлимитный", "Безлимитный"],
-  },
-  {
-    title: "Количество доступных курсов",
-    values: [
-      { value: "~150 курсов", isBad: true },
-      "~350 курсов",
-      "~550 курсов",
-    ],
-  },
-  {
-    title: "Задачи в тренажере",
-    values: [
-      { value: "Доступно 20%", isBad: true },
-      { value: "Доступно 50%", isBad: true },
-      "Доступно 100%",
-    ],
-  },
-  {
-    title: "Наличие ментора",
-    values: [{ value: "-", isBad: true }, { value: "-", isBad: true }, "Есть"],
-  },
-];
 </script>
 
 <style scoped lang="scss"></style>
