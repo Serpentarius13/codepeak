@@ -25,12 +25,12 @@
       <p class="text-medium">Только по любой из подписок</p>
     </div>
 
-    <CardBottom :color="color ?? colors.black" :bg-color="bgColor ?? '#fff'" />
+    <CommonReusedCardBottom :color="color ?? colors.black" :bg-color="bgColor ?? '#fff'" />
   </article>
 </template>
 
 <script setup lang="ts">
-import CardBottom from "~/components/common/reused/CardBottom.vue";
+
 import { colors } from "~/features/constants/colors.constants";
 import { IColoredCourse } from "~/features/types/courses.types";
 

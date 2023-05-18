@@ -2,7 +2,7 @@
   <section class="container-big flex flex-col gap-[10rem]">
     <slot />
 
-    <div class="grid w-full griddy justify-start gap-[2.4rem]">
+    <div class="griddy grid w-full justify-start gap-[2.4rem]">
       <nav class="row-span-2 flex h-full w-full flex-col gap-[4rem]">
         <CommonInputSearch v-model="searchRef" placeholder="Поиск курса" />
 
@@ -83,14 +83,13 @@ import {
   courseDirectionMap,
   courseExperienceMap,
 } from "~/features/constants/courses.constants";
-import useTag from "~/features/hooks/useTags.js";
+
 import { ITag } from "~/features/types/shared.types";
-import CatalogueFilterTitle from "./CatalogueFilterTitle.vue";
 
 import { colors } from "~/features/constants/colors.constants";
 import { tariffs } from "~/features/constants/tariffs.constants";
 import { ICourse } from "~/features/types/courses.types";
-import { ClientOnly } from "~/.nuxt/components";
+import useTestTag from "~/features/hooks/useTestTags";
 
 const makeTags = (map: Record<string, string>) =>
   Object.keys(map).map((key) => ({ slug: key, name: map[key] }));
@@ -108,27 +107,26 @@ const subscriptionTags = makeTags(
   }, {} as any)
 );
 
-console.log(tariffs);
 const {
   tags: directionRef,
   isTagInTags: isDirectionTag,
   toggleTag: toggleDirectionTag,
   removeAll: removeAllDirection,
-} = useTag();
+} = useTestTag<ITag>("name");
 
 const {
   tags: experienceRef,
   isTagInTags: isExperienceTag,
   toggleTag: toggleExperienceTag,
   removeAll: removeAllExperience,
-} = useTag();
+} = useTestTag<ITag>("slug");
 
 const {
   tags: subscriptionRef,
   isTagInTags: isSubscriptionTag,
   toggleTag: toggleSubscriptionTag,
   removeAll: removeAllSubscription,
-} = useTag();
+} = useTestTag<ITag>("slug");
 
 const range = ref<string>("1-12");
 

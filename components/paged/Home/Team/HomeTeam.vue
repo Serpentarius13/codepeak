@@ -24,7 +24,7 @@
     </nav>
 
     <div class="relative h-[95rem] w-screen md:h-[60rem]">
-      <PagesHomeTeamSlider :slides="slides" />
+      <PagedHomeTeamSlider :slides="slides" />
     </div>
   </section>
 </template>

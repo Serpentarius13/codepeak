@@ -34,13 +34,13 @@ import useToastStore, { TToastStatus } from "~/stores/useToastStore";
 
 type NonNullStatus = Exclude<TToastStatus, null>;
 
-export const toastColorMap: Record<NonNullStatus, string> = {
+const toastColorMap: Record<NonNullStatus, string> = {
   warning: "border-orange text-orange",
   error: "border-red text-red",
   success: "border-light-green text-light-green",
 };
 
-export const toastIconMap: Record<NonNullStatus, string> = {
+const toastIconMap: Record<NonNullStatus, string> = {
   error: "toast/error",
   warning: "toast/warning",
   success: "toast/success",

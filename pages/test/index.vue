@@ -1,5 +1,5 @@
 <template>
-  <ClientOnly> <MainCatalogue/> </ClientOnly>
+  <ClientOnly> <PagedCoursePage/> </ClientOnly>
 </template>
 
 <script setup lang="ts">

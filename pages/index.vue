@@ -1,12 +1,12 @@
 <template>
-  <PagesHomeBanner />
-  <PagesHomeImage />
-  <PagesHomeQualities class="mt-[9.6rem]" />
-  <PagesHomePride class="mt-[22.3rem]" />
-  <PagesHomeTeam class="mt-[16rem]" />
-  <PagesHomeSubscriptions class="mt-[26.2rem]" />
+  <PagedHomeBanner />
+  <PagedHomeImage />
+  <PagedHomeQualities class="mt-[9.6rem]" />
+  <PagedHomePride class="mt-[22.3rem]" />
+  <PagedHomeTeam class="mt-[16rem]" />
+  <PagedHomeSubscriptions class="mt-[26.2rem]" />
 
-  <PagesHomeCatalogue />
+  <PagedHomeCatalogue />
 </template>
 
 <script setup lang="ts"></script>

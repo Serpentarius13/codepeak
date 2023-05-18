@@ -1,31 +1,28 @@
 <template>
   <article class="flex h-full min-h-[67.6rem] flex-col gap-[1.8rem] bg-white">
-    <div
-      class="text-medium borderline-transparent flex w-full justify-between rounded-semi-big px-[3.4rem] py-[2.7rem]"
-    >
+    <div class="text-medium borderline-transparent flex w-full justify-between rounded-semi-big px-[3.4rem] py-[2.7rem]">
       <h4 class="flex items-center gap-[2.4rem]">
         Подписка <span ref="subRef" class="block"> {{ name }} </span>
       </h4>
 
       <div>
-        <span ref="priceRef"> {{ price }} </span> <CommonRuble />
+        <span ref="priceRef"> {{ price }} </span>
+        <CommonRuble />
       </div>
     </div>
 
-    <div
-      class="borderline-transparent flex flex-1 flex-col justify-between rounded-semi-big px-[3.2rem] py-[3.5rem]"
-    >
+    <div class="borderline-transparent flex flex-1 flex-col justify-between rounded-semi-big px-[3.2rem] py-[3.5rem]">
       <div class="flex flex-col gap-[2.8rem]">
         <h5 class="heading-small">Чекаут</h5>
 
-        <ul
-          class="borderline-transparent flex w-full flex-col gap-[1.8rem] border-l-0 border-r-0 py-[2.8rem]"
-        >
+        <ul class="borderline-transparent flex w-full flex-col gap-[1.8rem] border-l-0 border-r-0 py-[2.8rem]">
           <li v-for="{ name, price } in pricings" :key="name">
             <div class="text-medium flex w-full items-center justify-between">
               <span class="opacity-[40%]"> {{ name }} </span>
 
-              <span> {{ price }} <CommonRuble /></span>
+              <span> {{ price }}
+                <CommonRuble />
+              </span>
             </div>
           </li>
         </ul>
@@ -59,6 +56,7 @@ import anime from "animejs";
 import calculateCommaPrice, {
   appendCommas,
 } from "~/features/utils/calculateCommaPrice";
+import { animateRotate } from "~/features/utils/animateRotate";
 
 type TPricing = { name: string; price: ITariff["price"] };
 
@@ -106,15 +104,7 @@ function animateValue(
   });
 }
 
-function animateRotate() {
-  anime({
-    targets: subRef.value,
-    rotate:
-      subRef.value?.style.transform == "rotate(360deg)" ? 0: 360,
-    duration: 2000,
-    easing: "spring",
-  });
-}
+
 
 onMounted(() => {
   animateValue(priceRef);
@@ -123,7 +113,7 @@ onMounted(() => {
 watch(props, () => {
   animateValue(priceRef);
   animateValue(totalRef, calculateCommaPrice(props.price, props.discount));
-  animateRotate();
+  animateRotate(subRef.value as HTMLElement);
 });
 </script>
 

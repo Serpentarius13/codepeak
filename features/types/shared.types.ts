@@ -29,7 +29,7 @@ export interface ICreatedAt {
 
 export interface IColored {
   bgColor?: string;
-  color?: string
+  color?: string;
 }
 
 export interface ITag {
