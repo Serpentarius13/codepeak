@@ -3,5 +3,5 @@
     <NuxtPage />
   </NuxtLayout>
 
-  <ClientOnly> <WidgetsModalWindow /> <WidgetsToastToaster /> </ClientOnly>
+  <ClientOnly> <WidgetsModalWindow /> <WidgetsToaster /> </ClientOnly>
 </template>

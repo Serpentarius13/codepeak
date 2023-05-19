@@ -3,13 +3,13 @@
     <Transition name="toast">
       <div
         v-if="toastStore.toasts.length"
-        class="fixed bottom-[3%] right-[5%] flex flex-col gap-[1rem]"
+        class="fixed bottom-[3%] right-[5%] flex flex-col gap-[1rem] z-[100] "
       >
         <TransitionGroup name="toast">
           <div
             v-for="toast in toastStore.toasts"
             :class="[
-              'rounded-[0.3rem] border-[1px] border-solid bg-black px-[1.6rem] py-[2.2rem]',
+              'rounded-[0.3rem] border-[1px] border-solid  px-[1.6rem] py-[2.2rem] bg-white flex gap-[1rem] items-center',
               toastColorMap[toast.status],
             ]"
             :key="toast.text"
