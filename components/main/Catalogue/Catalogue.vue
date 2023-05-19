@@ -3,7 +3,9 @@
     <slot />
 
     <div class="griddy grid w-full justify-start gap-[2.4rem]">
-      <nav class="row-span-2 flex h-full w-full flex-col gap-[4rem]">
+      <nav
+        class="row-span-2 flex h-full w-full max-w-[95vw] flex-col gap-[4rem]"
+      >
         <CommonInputSearch v-model="searchRef" placeholder="Поиск курса" />
 
         <MainCatalogueFilterTitle title="Направление">
@@ -89,7 +91,8 @@ import { ITag } from "~/features/types/shared.types";
 import { colors } from "~/features/constants/colors.constants";
 import { tariffs } from "~/features/constants/tariffs.constants";
 import { ICourse } from "~/features/types/courses.types";
-import useTestTag from "~/features/hooks/useTestTags";
+
+import useTag from "~/features/hooks/useTags";
 
 const makeTags = (map: Record<string, string>) =>
   Object.keys(map).map((key) => ({ slug: key, name: map[key] }));
@@ -112,21 +115,21 @@ const {
   isTagInTags: isDirectionTag,
   toggleTag: toggleDirectionTag,
   removeAll: removeAllDirection,
-} = useTestTag<ITag>("name");
+} = useTag();
 
 const {
   tags: experienceRef,
   isTagInTags: isExperienceTag,
   toggleTag: toggleExperienceTag,
   removeAll: removeAllExperience,
-} = useTestTag<ITag>("slug");
+} = useTag();
 
 const {
   tags: subscriptionRef,
   isTagInTags: isSubscriptionTag,
   toggleTag: toggleSubscriptionTag,
   removeAll: removeAllSubscription,
-} = useTestTag<ITag>("slug");
+} = useTag();
 
 const range = ref<string>("1-12");
 
@@ -150,6 +153,7 @@ type TCourseFiltration = (courses: ICourse[]) => ICourse[];
 
 function composeFunctions(target: ICourse[], fns: TCourseFiltration[]) {
   return fns.reduce((t, fn) => {
+ 
     return fn(t);
   }, target);
 }
@@ -157,6 +161,7 @@ function composeFunctions(target: ICourse[], fns: TCourseFiltration[]) {
 function getFiltrations() {
   const filtrations: TCourseFiltration[] = [];
 
+  console.log(directionRef.value, experienceRef.value, subscriptionRef.value);
   if (directionRef.value.length)
     makeTagFiltration(filtrations, directionRef, "direction");
   if (experienceRef.value.length)
@@ -183,10 +188,8 @@ function makeTagFiltration(
   reffy: Ref<ITag[]>,
   field: keyof ICourse
 ) {
-  acc.push(() =>
-    duplicatedCourses.filter((c) =>
-      reffy.value.some((t) => t.slug === c[field])
-    )
+  acc.push((courses: ICourse[]) =>
+    courses.filter((c) => reffy.value.some((t) => t.slug === c[field]))
   );
 }
 

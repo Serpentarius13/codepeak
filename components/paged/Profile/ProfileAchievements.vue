@@ -1,5 +1,5 @@
 <template>
-  <section class="container flex min-h-screen flex-col gap-[2.6rem]">
+  <section class="container flex min-h-screen flex-col gap-[2.6rem] max-w-screen">
     <div class="flex items-center gap-[2.5rem]">
       <div class="flex items-center gap-[1.6rem]">
         <NuxtIcon name="achievement" />

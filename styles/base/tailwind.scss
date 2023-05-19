@@ -12,7 +12,7 @@
   }
 
   .heading-huge {
-    @apply text-[10.4rem] leading-[110%] -tracking-[0.5rem] lg:text-[8rem] md:text-[6.8rem] sm:text-[5rem];
+    @apply text-[10.4rem] leading-[110%] -tracking-[5px] lg:text-[8rem] lg:-tracking-[3px] md:text-[6.8rem] sm:text-[5rem];
   }
 
   .heading {
@@ -40,7 +40,7 @@
   }
 
   .text-small {
-    @apply text-[1.6rem] leading-[130%] -tracking-[0.16px]
+    @apply text-[1.6rem] leading-[130%] -tracking-[0.16px];
   }
 
   .text-smallest {

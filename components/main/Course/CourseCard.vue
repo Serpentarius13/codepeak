@@ -1,7 +1,7 @@
 <template>
   <article
     :class="[
-      'flex min-h-[60rem] flex-col justify-between px-[4.1rem] pb-[3.6rem] pt-[4.6rem] w-[44.4rem] max-w-screen rounded-semi-big',
+      'flex min-h-[60rem] flex-col justify-between px-[4.1rem] pb-[3.6rem] pt-[4.6rem] w-[44.4rem] max-w-[90vw] rounded-semi-big',
       !color && !bgColor && 'borderline-transparent bg-white',
     ]"
     :style="{ color, backgroundColor: bgColor }"

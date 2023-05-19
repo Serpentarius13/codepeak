@@ -80,11 +80,11 @@
     @mouseenter="animateBoxes"
     @mouseleave="animateBoxes(true)"
   >
-    <div class="flex items-end gap-[1rem]">
+    <div class="flex items-end gap-[1rem] sm:flex-col sm:items-start">
       <h2 class="heading-huge">Структура курса</h2>
 
       <div
-        class="relative h-[7.2rem] w-[12rem] -translate-y-[1rem]"
+        class="relative h-[7.2rem] w-[12rem] -translate-y-[1rem] "
         tabindex="0"
       >
         <div
@@ -121,37 +121,31 @@
     </ul>
   </section>
 
-  <section class="container-big mt-[12.9rem] ">
+  <section class="container-big mt-[12.9rem]">
+    <CommonReusedBorderColumns class="grid-cols-[1fr_0.4fr_0.4fr]" cols="3" />
 
-    
-  <CommonReusedBorderColumns
-  class="grid-cols-[1fr_0.4fr_0.4fr]"
-  cols="3"
-/>
+    <div class="flex justify-between md:flex-col">
+      <div class="flex max-w-[85rem] flex-col gap-[5.8rem] md:gap-[3rem]">
+        <h2 class="heading max-w-[70%]">
+          Официальные партнеры XSLAB по вопросам трудоустройства выпускников
+        </h2>
 
-<div class="flex justify-between">
-  <div class="flex max-w-[85rem] flex-col gap-[5.8rem]">
-    <h2 class="heading">
-      Официальные партнеры XSLAB по вопросам трудоустройства выпускников
-    </h2>
+        <CommonIconsSlack />
+      </div>
 
-    <CommonIconsSlack />
-  </div>
-
-  <div class="text-big flex gap-[11.7rem]">
-    <p class="max-w-[32.5rem]">
-      >68% выпускников устраиваются на работу в течение прохождения курса
-    </p>
-    <p class="max-w-[28.3rem]">
-      средняя зарплата выпускника наших курсов около 48 тысяч рублей
-    </p>
-  </div>
-</div>
-   
+      <div class="text-big flex gap-[11.7rem] xl:gap-[7rem] lg:gap-[4rem] md:flex-wrap">
+        <p class="max-w-[32.5rem]">
+          >68% выпускников устраиваются на работу в течение прохождения курса
+        </p>
+        <p class="max-w-[28.3rem]">
+          средняя зарплата выпускника наших курсов около 48 тысяч рублей
+        </p>
+      </div>
+    </div>
   </section>
 
   <section
-    class="container-big mt-[23.1rem] grid min-h-[100rem] grid-cols-2 gap-[12rem]"
+    class="container-big mt-[23.1rem] grid min-h-[100rem] grid-cols-2 gap-[12rem] xl:gap-[6rem] lg:flex lg:flex-col lg:gap-[2rem]"
   >
     <div class="group relative">
       <NuxtImg
@@ -163,24 +157,28 @@
 
       <NuxtIcon
         name="starly"
-        class="absolute -right-[8%] -top-[5%] aspect-square w-[16.8rem] rotate-45 stroke-black stroke-[0.5px] text-white transition-all duration-300 group-hover:rotate-[360deg]"
+        class="absolute -right-[8%] -top-[5%] aspect-square w-[16.8rem] rotate-45 stroke-black stroke-[0.5px] text-white transition-all duration-300 group-hover:rotate-[360deg] lg:right-0 lg:w-[8rem]"
       />
       <NuxtIcon
         name="starly"
-        class="absolute -bottom-[5%] -left-[8%] aspect-square w-[16.8rem] rotate-45 stroke-black stroke-[0.5px] text-white transition-all duration-700 group-hover:rotate-[360deg]"
+        class="absolute -bottom-[5%] -left-[8%] aspect-square w-[16.8rem] rotate-45 stroke-black stroke-[0.5px] text-white transition-all duration-700 group-hover:rotate-[360deg] lg:left-0 lg:w-[8rem]"
       />
     </div>
 
     <div class="flex h-full flex-col justify-between">
-      <div class="flex flex-col gap-[4.5rem] pt-[10.5rem]">
+      <div
+        class="flex flex-col gap-[4.5rem] pt-[10.5rem] lg:gap-[2rem] lg:pt-[3rem]"
+      >
         <figure class="flex items-center gap-[1.4rem]">
           <NuxtImg
             src="/img/person.png"
-            width="60"
-            height="60"
-            class="aspect-square w-[6rem] rounded-full"
+            width="92"
+            height="92"
+            class="aspect-square w-[6rem] rounded-full lg:w-[9.2rem]"
           />
-          <h2 class="heading">Александр Пушкин</h2>
+          <h2 class="heading lg:text-[7rem] md:text-[5rem]">
+            Александр Пушкин
+          </h2>
         </figure>
 
         <div class="text-big w-full [&>*]:px-[3.6rem] [&>*]:py-[4.2rem]">
@@ -189,7 +187,9 @@
         </div>
       </div>
 
-      <ul class="grid w-[55rem] max-w-full grid-cols-2 gap-[8rem]">
+      <ul
+        class="grid w-[55rem] max-w-full grid-cols-2 gap-[8rem] xl:gap-[6rem] lg:gap-[3.5rem]"
+      >
         <li v-for="{ num, text } in teacherPerks" :key="num">
           <div class="flex flex-col gap-[1rem]">
             <h5 class="heading">

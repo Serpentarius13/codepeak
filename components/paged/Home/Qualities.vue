@@ -10,7 +10,7 @@
       class="flex min-h-[22rem] w-full max-w-[95vw] flex-wrap items-center justify-end gap-[2.4rem] 2xl:gap-[1.8rem] xl:gap-[1.6rem] md:flex-col  md:items-start md:justify-center"
     >
       <li v-for="{ title, text } in qualities" :key="title" class="max-w-full">
-        <article class="max-w-screen flex h-full w-[44.4rem] flex-col gap-[3.2rem] py-[3.3rem] pl-[3.9rem] pr-[4.8rem] lg:p-0 md:max-w-[95vw] borderline-transparent rounded-semi-big">
+        <article class="max-w-screen flex h-full w-[44.4rem] flex-col gap-[3.2rem] py-[3.3rem] pl-[3.9rem] pr-[4.8rem] lg:p-[1rem] md:max-w-[95vw] borderline-transparent rounded-semi-big">
           <h5 class="text-biggest">{{ title }}</h5>
       
           <p class="text-medium max-w-[35.7rem] md:max-w-[90vw]">{{ text }}</p>

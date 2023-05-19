@@ -14,6 +14,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiBase: "http://localhost:7000/training",
+      baseUrl: process.env.BASE_URL,
     },
   },
 
@@ -21,9 +22,8 @@ export default defineNuxtConfig({
     vue: {
       script: {
         defineModel: true,
-        propsDestructure: true
-      }
-    }
-  }
-
+        propsDestructure: true,
+      },
+    },
+  },
 });
