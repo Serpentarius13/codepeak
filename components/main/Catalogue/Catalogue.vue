@@ -1,5 +1,5 @@
 <template>
-  <section class="container-big flex flex-col gap-[10rem]">
+  <section class="container-big flex flex-col">
     <slot />
 
     <div class="griddy grid w-full justify-start gap-[2.4rem]">

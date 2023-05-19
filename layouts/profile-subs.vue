@@ -1,9 +1,11 @@
 <template>
-  <LayoutNavbar class="!fixed top-0" />
+  <LayoutNavbar class="!fixed top-0 bg-white bg-opacity-20" />
 
   <main class="relative min-h-screen w-screen bg-white pt-[3rem]">
     <slot />
-    <div class="gradient absolute top-0 min-h-[73.1rem] w-screen sm:min-h-[80rem] " />
+    <div
+      class="gradient absolute top-0 min-h-[73.1rem] w-screen sm:min-h-[80rem]"
+    />
   </main>
 
   <LayoutFooter class="mt-[7.3rem]" />
