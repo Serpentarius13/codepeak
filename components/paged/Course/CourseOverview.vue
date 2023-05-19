@@ -7,7 +7,10 @@
     </div>
 
     <div class="relative">
-      <CommonVideo videoUrl="https://www.youtube.com/watch?v=CxzsKU_e2Js" class="z-[110]" />
+      <CommonVideo
+        videoUrl="https://www.youtube.com/watch?v=PmPkAAu_QF4"
+        class="z-[110]"
+      />
 
       <Transition name="fade">
         <div
@@ -46,8 +49,22 @@ function startVideo() {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .shadowed {
-  box-shadow: inset 0 0 400px rgba(0, 0, 0, 0.815);
+  background: radial-gradient(
+    ellipse at top,
+
+    transparent 0%,
+    rgba(0, 0, 0, 0.705) 70%
+  );
+}
+
+html {
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 144px;
+}
+
+section {
+  scroll-snap-align: end;
 }
 </style>
