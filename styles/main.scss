@@ -6,21 +6,21 @@
 @tailwind utilities;
 
 * {
-  @apply m-0 p-0 box-border;
+  @apply m-0 box-border p-0;
   margin: 0;
   padding: 0;
 }
 
 html {
   font-size: 62.5%;
+
   font-family: "Suisse Intl", sans-serif;
 }
 
 body {
-  @apply overflow-x-hidden  bg-white  text-black relative;
+  @apply relative  overflow-x-hidden  bg-white text-black;
 }
 
-
 img {
-  @apply max-w-full block;
+  @apply block max-w-full;
 }

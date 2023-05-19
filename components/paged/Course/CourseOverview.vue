@@ -49,7 +49,7 @@ function startVideo() {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .shadowed {
   background: radial-gradient(
     ellipse at top,
@@ -59,12 +59,12 @@ function startVideo() {
   );
 }
 
-html {
-  scroll-snap-type: y mandatory;
-  scroll-padding-top: 144px;
-}
-
 section {
   scroll-snap-align: end;
+}
+
+:global(html) {
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 144px;
 }
 </style>

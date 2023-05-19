@@ -19,6 +19,10 @@
     @apply text-[5.8rem] leading-[120%] -tracking-[0.48px] md:text-[4rem];
   }
 
+  .heading-medium {
+    @apply text-[5.3rem] leading-[100%] -tracking-[0.64px];
+  }
+
   .heading-small {
     @apply text-[3.2rem] leading-[110%] -tracking-[0.16px];
   }
