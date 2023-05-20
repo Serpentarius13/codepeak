@@ -1,10 +1,15 @@
 <template>
   <div class="h-screen w-screen">
-    <CommonLoading size="32" duration="1000" />
+    <div class="w-[40rem]">
+      <MainFormComponentsPayment />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
+//@ts-expect-error No types
+import binking from "binking";
+
 const router = useRouter();
 
 onMounted(() => {

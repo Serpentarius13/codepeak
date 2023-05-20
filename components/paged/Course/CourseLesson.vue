@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col gap-[4.4rem] snappy">
+  <section class="snappy flex flex-col gap-[4.4rem]">
     <div class="container flex items-center gap-[2.4rem]">
       <h1 class="heading">Привязка данных. Работа с компонентами.</h1>
 
@@ -11,9 +11,8 @@
     </div>
 
     <CommonVideoLoading
-    videoUrl="https://www.youtube.com/watch?v=PmPkAAu_QF4"
-  
-  />
+      videoUrl="https://www.youtube.com/watch?v=PmPkAAu_QF4"
+    />
   </section>
 
   <section class="container mt-[9rem] flex flex-col gap-[2.8rem]">
@@ -49,7 +48,10 @@
           </span>
         </figure>
 
-        <button class="group flex items-center gap-[0.8rem]" @click="downloadFile()">
+        <button
+          class="group flex items-center gap-[0.8rem]"
+          @click="downloadFile()"
+        >
           <NuxtIcon
             name="download"
             class="text-black opacity-30 group-hover:opacity-100"

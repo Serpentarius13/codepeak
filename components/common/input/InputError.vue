@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{ error: string | undefined | null }>();
+defineProps<{ error?: string | undefined | null }>();
 </script>
 
 <style scoped lang="scss"></style>

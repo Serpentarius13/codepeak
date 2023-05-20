@@ -22,7 +22,7 @@ const buttonVariants = cva(
           "borderline-transparent bg-white text-black hover:border-black hover:bg-black hover:text-white",
       },
       size: {
-        small: "py-[1.4rem] rounded-[1.6rem] px-[3rem] text-[1.9rem]",
+        small: "py-[1.3rem] text-small rounded-[1.6rem] px-[3rem] text-[1.9rem]",
         medium: "py-[2rem] px-[4.2rem] rounded-biggest text-big",
         big: "py-[4rem] px-[5.5rem] rounded-big text-big",
         'smallest': 'py-[1.2rem] px-[3.4rem] rounded-[3.8rem] text-medium'
