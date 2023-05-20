@@ -1,4 +1,4 @@
-const plugin = require('tailwindcss/plugin')
+const plugin = require("tailwindcss/plugin");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -16,7 +16,7 @@ module.exports = {
         "small-medium": "1.2rem",
         medium: "2rem",
         "semi-medium": "1.8rem",
-        
+
         "semi-big": "2.4rem",
         big: "3.2rem",
         biggest: "10rem",
@@ -35,6 +35,8 @@ module.exports = {
         orange: "#FFD362",
         blue: "#0500FF",
         white: "#fff",
+        "orange-bright": "#ea580c",
+        green: "#16a34a",
       },
     },
 
@@ -57,8 +59,8 @@ module.exports = {
     },
   },
   plugins: [
-   function({addVariant}) {
-    addVariant('child', '& > *')
-   }
+    function ({ addVariant }) {
+      addVariant("child", "& > *");
+    },
   ],
 };

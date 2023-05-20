@@ -1,14 +1,14 @@
 <template>
-  <div class="w-[36.6rem] max-w-screen">
+  <form class="max-w-screen w-[36.6rem]">
     <CommonSelect
       :options="techs"
-      :currentOption="selectedTechnology"
+      :currentOption="modelValue"
       @select="selectOption"
     >
       <template #button>
         <PagedMentorshipStepsTechnologyItem
-          :name="selectedTechnology.name"
-          :img="selectedTechnology.img"
+          :name="modelValue.name"
+          :img="modelValue.img"
         />
       </template>
       <template #options="{ options: { options, selectOption } }">
@@ -20,7 +20,8 @@
         >
           <button
             @click="selectOption(option)"
-            class="text-small  h-full w-full p-[1rem]"
+            class="text-small h-full w-full p-[1rem]"
+            type="button"
           >
             <PagedMentorshipStepsTechnologyItem
               :name="option.name"
@@ -30,54 +31,19 @@
         </li>
       </template>
     </CommonSelect>
-  </div>
+  </form>
 </template>
 
 <script setup lang="ts">
-type TTechnology = { name: string; img: string };
+import { TTechnology, techs } from "~/features/constants/techs.constants";
 
-const techs: TTechnology[] = [
-  {
-    name: "Javascript",
-    img: "/img/js.png",
-  },
-  {
-    name: "Javascript",
-    img: "/img/js.png",
-  },
-  {
-    name: "Javascript",
-    img: "/img/js.png",
-  },
-  {
-    name: "Javascript",
-    img: "/img/js.png",
-  },
-  {
-    name: "Javascript",
-    img: "/img/js.png",
-  },
-  {
-    name: "Javascript",
-    img: "/img/js.png",
-  },
-  {
-    name: "Javascript",
-    img: "/img/js.png",
-  },
-  {
-    name: "Javascript",
-    img: "/img/js.png",
-  },
-  {
-    name: "Javascript",
-    img: "/img/js.png",
-  },
-];
+const props = defineProps<{ modelValue: TTechnology}>();
 
-const selectedTechnology = ref<TTechnology>(techs[0]);
+const model = defineModel();
 
-const selectOption = (tech: TTechnology) => (selectedTechnology.value = tech);
+const selectOption = (tech: TTechnology) => {
+  model.value = tech;
+};
 </script>
 
 <style scoped lang="scss"></style>

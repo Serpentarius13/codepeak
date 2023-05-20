@@ -1,5 +1,7 @@
 <template>
-  <ul class="flex w-screen max-w-[111rem] justify-between flex-wrap xl:px-[3rem] lg:px-[2rem] lg:items-start">
+  <ul
+    class="flex w-screen max-w-[111rem] flex-wrap justify-between xl:px-[3rem] lg:items-start lg:px-[2rem]"
+  >
     <li
       v-for="(date, ix) in week"
       class="flex flex-col items-center gap-[2.4rem]"
@@ -20,11 +22,12 @@
         <li v-for="hour in 7">
           <button
             :class="[
-              'text-small rounded-[1.6rem] px-[2.4rem] py-[1.2rem] transition-all',
+              'text-small rounded-[1.6rem] px-[2.4rem] py-[1.2rem] transition-all disabled:opacity-50',
               makeTime(hour) === selected.time &&
                 date === selected.date &&
                 'bg-blue text-white',
             ]"
+            :disabled="new Date().getHours() > +`1${hour}`"
             @click="emit('date', { time: `${makeTime(hour)}`, date: date })"
           >
             {{ `~${makeTime(hour)}` }}
@@ -38,11 +41,8 @@
 <script setup lang="ts">
 import { days, months } from "~/features/constants/dates.constants";
 import { createWeek, shrinkMonthName } from "~/features/utils/dates.js";
-import { TDateValues } from "./date-values";
-
+import { TDateValues } from "~/features/types/shared.types";
 const week = createWeek(new Date());
-
-;
 
 const emit = defineEmits<{ date: [TDateValues] }>();
 

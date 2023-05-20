@@ -3,13 +3,13 @@
     <Transition name="toast">
       <div
         v-if="toastStore.toasts.length"
-        class="fixed bottom-[3%] right-[5%] flex flex-col gap-[1rem] z-[100] "
+        class="fixed bottom-[3%] right-[5%] z-[100] flex flex-col gap-[1rem]"
       >
         <TransitionGroup name="toast">
           <div
             v-for="toast in toastStore.toasts"
             :class="[
-              'rounded-[0.3rem] border-[1px] border-solid  px-[1.6rem] py-[2.2rem] bg-white flex gap-[1rem] items-center',
+              'flex items-center gap-[1rem]  rounded-[0.3rem] border-[1px] border-solid bg-white px-[1.6rem] py-[2.2rem]',
               toastColorMap[toast.status],
             ]"
             :key="toast.text"
@@ -35,9 +35,9 @@ import useToastStore, { TToastStatus } from "~/stores/useToastStore";
 type NonNullStatus = Exclude<TToastStatus, null>;
 
 const toastColorMap: Record<NonNullStatus, string> = {
-  warning: "border-orange text-orange",
+  warning: "border-orange-bright text-orange-bright",
   error: "border-red text-red",
-  success: "border-light-green text-light-green",
+  success: "border-green text-green",
 };
 
 const toastIconMap: Record<NonNullStatus, string> = {

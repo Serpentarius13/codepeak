@@ -28,7 +28,7 @@
 
     <Transition name="menu">
       <ul
-        class="w-full max-h-[40rem] overflow-auto  absolute left-0 z-10 mt-2 origin-top-right rounded-md border-[1px] border-black bg-white shadow-lg ring-white ring-opacity-5 focus:ring-1"
+        class="w-full max-h-[20vh] overflow-auto  absolute left-0 z-10 mt-2 origin-top-right rounded-md border-[1px] border-black bg-white shadow-lg ring-white ring-opacity-5 focus:ring-1"
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="menu-button"

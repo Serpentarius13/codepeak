@@ -9,7 +9,7 @@ interface IToast {
 }
 type ToastPayload = Omit<IToast, "status" | "id"> & { timeout?: number };
 
-const defaultTimeout = 50000;
+const defaultTimeout = 2000;
 
 function createToast(text: string, status: TToastStatus, id: string): IToast {
   return { text, status, id };
