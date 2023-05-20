@@ -5,13 +5,13 @@
     </span>
 
     <slot />
+
+    <CommonInputError :error="error" />
   </label>
 </template>
 
 <script setup lang="ts">
-
-
-defineProps<{ label: string; }>();
+defineProps<{ label: string; error?: string | undefined }>();
 </script>
 
 <style scoped lang="scss"></style>

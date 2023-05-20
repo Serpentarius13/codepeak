@@ -11,7 +11,9 @@
 </template>
 
 <script setup lang="ts">
-const model = defineModel({ required: true, default: "" });
+const model = defineModel({ required: true, default: "",  });
+
+defineProps<{error?: string | undefined}>()
 </script>
 
 <style scoped lang="scss"></style>
