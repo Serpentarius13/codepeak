@@ -1,5 +1,5 @@
 <template>
-  <section class="container mt-[8.2rem] flex flex-col gap-[5rem]">
+  <section class="container mt-[1.2rem] flex flex-col gap-[3rem]">
     <h1 class="heading-small">
         Оплата подписки
     </h1>
