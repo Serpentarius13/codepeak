@@ -3,7 +3,7 @@
     class="relative"
     :style="!isLoaded ? { width, height } : {}"
   >
-    <CommonVideo :videoUrl="videoUrl" class="z-[110]" v-if="isLoaded" />
+    <CommonVideo :videoUrl="videoUrl" class="z-[220]" v-if="isLoaded" />
 
     <Transition name="fade">
       <div

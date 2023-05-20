@@ -167,10 +167,11 @@ const { handleSubmit, errors } = useForm({
   initialValues: {
     month: new Date().getMonth() + 1,
     year: getCurrentYear(),
+    number: ''
   },
 });
 
-const { value: number } = useField("number");
+const { value: number } = useField<string>("number");
 const { value: month } = useField("month");
 const { value: year } = useField("year");
 const { value: cvv } = useField("cvv");
@@ -183,9 +184,9 @@ const onSubmit = handleSubmit((data) => {
 });
 
 const currentBank = computed<IBank | undefined>(() => {
-  if (number)
+  if (number.value.length >= 1)
     return banks.find(
-      (b) => b.startingDigit === parseInt(number.value as string)
+      (b) => b.startingDigit === parseInt(number.value[0] as string)
     );
 });
 </script>
