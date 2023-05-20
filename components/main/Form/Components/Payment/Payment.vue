@@ -1,6 +1,6 @@
 <template>
   <form
-    class="max-w-screen flex w-[46.9rem] flex-col gap-[1.6rem]"
+    class="max-w-[90vw] flex w-[46.9rem] flex-col gap-[1.6rem]"
     @submit.prevent="onSubmit"
   >
     <MainFormComponentsPaymentSubButton
@@ -83,11 +83,12 @@
 
         <div class="mt-[2rem] flex flex-col gap-[2rem]">
           <CommonInputCheckbox
-            v-model="checked"
+            v-model="autoPayments"
             label="Разрешаю автосписания"
+            
           />
           <CommonInputCheckbox
-            v-model="checkedTwo"
+            v-model="sendCheck"
             label="Прислать квитанцию"
           />
         </div>
