@@ -8,12 +8,20 @@ export interface ITariff {
   coursesCount: number | string;
   advantage: string;
   description: string;
-  price:string;
+  price: string;
 }
 
 export interface IColorTariff extends ITariff, IColored {}
 
+export interface ITariffName extends IColored {
+  name: string;
+}
 
+export const tariffNameMap: Record<TTariffName, ITariffName> = {
+  Dark: { name: "Стандартная", bgColor: colors.black, color: "#fff" },
+  Spotlight: { name: "Расширенная", bgColor: colors.blue, color: "#fff" },
+  Sunlight: { name: "Топовая", bgColor: colors.yellow, color: colors.black },
+};
 
 export const tariffs: IColorTariff[] = [
   {
