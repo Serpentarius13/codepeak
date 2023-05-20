@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col gap-[4.4rem]">
+  <section class="flex flex-col gap-[4.4rem] snappy">
     <div class="container flex items-center gap-[2.4rem]">
       <h1 class="heading">Привязка данных. Работа с компонентами.</h1>
 
@@ -10,7 +10,10 @@
       </div>
     </div>
 
-    <div class="h-screen w-screen bg-blue" />
+    <CommonVideoLoading
+    videoUrl="https://www.youtube.com/watch?v=PmPkAAu_QF4"
+  
+  />
   </section>
 
   <section class="container mt-[9rem] flex flex-col gap-[2.8rem]">
@@ -87,5 +90,14 @@ function downloadAll() {}
 
 .underline-gray {
   @include underlined(white, black, 2);
+}
+
+.snappy {
+  scroll-snap-align: end;
+}
+
+:global(html) {
+  scroll-snap-type: y proximity;
+  scroll-padding-top: 144px;
 }
 </style>

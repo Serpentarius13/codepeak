@@ -1,6 +1,6 @@
 <template>
   <div class="h-screen w-screen">
-    <CommonVideo />
+    <CommonLoading size="32" duration="1000" />
   </div>
 </template>
 
