@@ -212,6 +212,6 @@ function duplicateArray<T>(array: T[], times: number): T[] {
 }
 
 .griddy {
-  grid-template-columns: repeat(auto-fill, minmax(42rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(39rem, 1fr));
 }
 </style>
