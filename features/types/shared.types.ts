@@ -55,3 +55,6 @@ export interface IAchievement {
   title: string;
 }
 export interface TDateValues { time: string | null; date: Date | null };
+
+
+export type TSubDuration = 'year' | 'month'

@@ -7,8 +7,11 @@ export function animateValue(
   duration: number = 0.8
 ) {
   if (!element) return;
+  console.log(starting);
 
   starting = parseFloat(String(starting).replaceAll(",", ""));
+
+  console.log(starting);
 
   anime({
     targets: element,

@@ -1,25 +1,14 @@
 <template>
-  <form class="flex w-full flex-col gap-[1.6rem]" @submit.prevent="onSubmit">
-    <button
-      class="form-bg group flex min-h-[10rem] w-full flex-col gap-[0.6rem] rounded-[1.4rem] px-[3.2rem] py-[2.4rem] text-white"
-      type="button"
-    >
-      <div class="flex items-center gap-[1.2rem] text-[2.1rem]">
-        <span> Подписка "Dark", 1 месяц </span>
-
-        <NuxtIcon
-          name="input/pencil"
-          class="opacity-30 transition-all group-hover:opacity-100"
-        />
-      </div>
-
-      <span
-        class="text-medium opacity-50 transition-all group-hover:opacity-100"
-      >
-        2590Р
-      </span>
-    </button>
-
+  <form
+    class="max-w-screen flex w-[46.9rem] flex-col gap-[1.6rem]"
+    @submit.prevent="onSubmit"
+  >
+    <MainFormComponentsPaymentSubButton
+      :sub="currentTariff"
+      :duration="duration"
+      @tariff="handleTariffChange"
+      @duration="handleDurationChange"
+    />
     <div class="flex flex-col gap-[4rem] px-[3.9rem] py-[3.2rem]">
       <div class="flex items-center gap-[1.3rem]">
         <NuxtIcon
@@ -104,7 +93,8 @@
         </div>
 
         <CommonButton variant="filled" size="small" class="mt-[2rem] w-full">
-          Заплатить 2590
+          Заплатить &nbsp; <span ref="priceRef">  {{ currentTariff.price }} </span
+          ><CommonRuble />
         </CommonButton>
       </div>
     </div>
@@ -114,10 +104,34 @@
 <script setup lang="ts">
 import { z } from "zod";
 import { IBank, banks } from "~/features/constants/banks.constants";
+import { ITariff } from "~/features/constants/tariffs.constants";
+import { TSubDuration } from "~/features/types/shared.types";
+import { animateValue } from "~/features/utils/animateValue";
 
-const checked = ref<boolean>(false);
+const props = defineProps<{ currentTariff: ITariff }>();
 
-const checkedTwo = ref(false);
+const duration = toRef<TSubDuration>("month");
+const currentTariff = toRef(props.currentTariff);
+
+const priceRef = ref<HTMLElement | null>(null);
+
+watch([duration, currentTariff], () => {
+  if (!priceRef.value) return;
+  animateValue(
+    priceRef.value,
+    duration.value === "month"
+      ? currentTariff.value.price
+      : +currentTariff.value.price.replaceAll(",", "") * 10
+  );
+});
+
+function handleDurationChange(dur: TSubDuration) {
+  duration.value = dur;
+}
+
+function handleTariffChange(tar: ITariff) {
+  currentTariff.value = tar;
+}
 
 const getCurrentYear = (): number =>
   +new Date().getFullYear().toLocaleString().slice(2);
@@ -144,7 +158,7 @@ const validationSchema = toTypedSchema(
       .nonempty("Введите CVV код")
       .length(3, "Длина CVV кода - 3 символа"),
     autoPayments: z.boolean().default(false),
-    check: z.boolean().default(false),
+    sendCheck: z.boolean().default(false),
   })
 );
 
@@ -160,6 +174,9 @@ const { value: number } = useField("number");
 const { value: month } = useField("month");
 const { value: year } = useField("year");
 const { value: cvv } = useField("cvv");
+
+const { value: autoPayments } = useField("autoPayments");
+const { value: sendCheck } = useField("sendCheck");
 
 const onSubmit = handleSubmit((data) => {
   console.log(data);
