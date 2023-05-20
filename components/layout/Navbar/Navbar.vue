@@ -1,7 +1,7 @@
 <template>
 
   <header
-    class="sticky top-0 flex min-h-[8.6rem] w-screen items-center justify-center z-[100]  "
+    class="sticky top-0 flex min-h-[8.6rem] w-screen items-center justify-center z-[200] bg-white  "
   >
     <div class="container flex justify-between">
       <div class="flex items-center gap-[1.4rem]">

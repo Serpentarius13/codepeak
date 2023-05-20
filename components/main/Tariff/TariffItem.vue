@@ -1,6 +1,6 @@
 <template>
   <article
-    class="flex min-h-[67.6rem] max-w-[44.3rem] flex-col justify-between rounded-semi-big px-[4.3rem] py-[3.6rem] md:max-w-[95vw] md:gap-[2rem] md:px-[2rem] md:py-[3rem]"
+    class="flex min-h-[67.6rem] max-w-[42rem] flex-col justify-between rounded-semi-big px-[3rem] py-[3.6rem] md:max-w-[95vw] md:gap-[2rem] md:px-[2rem] md:py-[3rem]"
     :style="{ backgroundColor: bgColor, color }"
   >
     <div class="flex flex-col gap-[5rem]">
