@@ -30,6 +30,7 @@
               class="w-full"
               v-model="number"
               :error="errors.number"
+              :value="cardNumber"
             />
 
             <KeepAlive>
@@ -167,7 +168,7 @@ const { handleSubmit, errors } = useForm({
   initialValues: {
     month: new Date().getMonth() + 1,
     year: getCurrentYear(),
-    number: ''
+    number: "",
   },
 });
 
@@ -188,6 +189,15 @@ const currentBank = computed<IBank | undefined>(() => {
     return banks.find(
       (b) => b.startingDigit === parseInt(number.value[0] as string)
     );
+});
+
+const cardNumber = computed<string>(() => {
+  if (number.value.length >= 19) return number.value;
+  const input = number.value.replace(/\D/g, "").match(/.{1,4}/g);
+
+  console.log(input);
+
+  return input ? input.join("/") : number.value;
 });
 </script>
 
