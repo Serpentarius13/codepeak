@@ -38,10 +38,11 @@
 <script setup lang="ts">
 import { days, months } from "~/features/constants/dates.constants";
 import { createWeek, shrinkMonthName } from "~/features/utils/dates.js";
+import { TDateValues } from "./date-values";
 
 const week = createWeek(new Date());
 
-type TDateValues = { time: string; date: Date };
+;
 
 const emit = defineEmits<{ date: [TDateValues] }>();
 

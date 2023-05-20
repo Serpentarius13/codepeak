@@ -39,11 +39,11 @@ export interface ITag {
 
 export interface ITableValue {
   value: string;
-  isBad?: boolean
+  isBad?: boolean;
 }
 export interface ITableRow {
   title: string;
-  values: (ITableValue | string)[]
+  values: (ITableValue | string)[];
 }
 
 export interface IAchievement {
@@ -52,5 +52,6 @@ export interface IAchievement {
   min: number;
   max: number;
   progress: number;
-  title: string
+  title: string;
 }
+export interface TDateValues { time: string | null; date: Date | null };

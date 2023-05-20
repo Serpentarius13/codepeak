@@ -7,13 +7,19 @@
       <h1 class="heading">Менторство</h1>
     </div>
 
-    <div class="flex w-full flex-col items-center gap-[4.2rem]" ref="animeRef">
+    <div
+      class="flex w-full flex-1 flex-col items-center gap-[4.2rem]"
+      ref="animeRef"
+    >
       <h2 class="heading-small max-w-[55rem] text-center">
         {{ stepsTitle[currentStep] }}
       </h2>
 
       <Transition name="fade">
         <template v-if="currentStep === 0">
+          <PagedMentorshipStepsTechnologySelect />
+        </template>
+        <template v-else-if="currentStep === 1">
           <PagedMentorshipStepsCalendar
             @date="handleDate"
             :selected="dateRef"
@@ -51,9 +57,9 @@
 </template>
 
 <script setup lang="ts">
-import anime from "animejs";
 import sleep from "~/features/utils/sleep";
 import useToastStore from "~/stores/useToastStore";
+import { TDateValues } from "~/features/types/shared.types";
 
 type TStepsTuple = [string, string, string, string];
 const steps = 4;
@@ -63,7 +69,7 @@ const stepsElapsed = ref<number>(0);
 
 const animeRef = ref<HTMLElement | null>(null);
 
-const dateRef = reactive<{ time: string | null; date: Date | null }>({
+const dateRef = reactive<TDateValues>({
   time: null,
   date: null,
 });
