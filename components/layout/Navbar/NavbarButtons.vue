@@ -3,12 +3,12 @@
     <ClientOnly>
       <CommonLoading size="24" v-if="store.isLoading" />
       <template v-else-if="store.user">
-        <NuxtLink to="/profile/notifications">
+        <button @click="openNotifications">
           <NuxtIcon
             name="bell"
             class="'w-[2rem] aspect-square text-black opacity-30 hover:opacity-100"
           />
-        </NuxtLink>
+        </button>
         <CommonProfileAvatar />
       </template>
 
@@ -22,6 +22,12 @@
         </NuxtLink>
       </template>
     </ClientOnly>
+
+    <LayoutNavbarNotifications
+      class="absolute bottom-0 right-[8%] translate-y-[100%]"
+      v-if="isNotificationsOpened"
+      @close="closeNotifications"
+    />
   </nav>
 </template>
 
@@ -29,6 +35,11 @@
 import { useUserStore } from "~/stores/useUserStore.js";
 
 const store = useUserStore();
+
+const isNotificationsOpened = ref<boolean>(true);
+
+const openNotifications = () => (isNotificationsOpened.value = true);
+const closeNotifications = () => (isNotificationsOpened.value = false);
 </script>
 
 <style scoped lang="scss">
