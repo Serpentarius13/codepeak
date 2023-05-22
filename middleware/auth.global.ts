@@ -4,16 +4,14 @@ export default defineNuxtRouteMiddleware(async (request) => {
   if (process.server) return;
 
   const userStore = useUserStore();
-
-  console.log(userStore.user);
+  console.log("!");
 
   if (!userStore.user && userStore.isAuthPossible) {
+    console.log("fetch ");
     await userStore.loginWithToken();
   }
 
-  console.log(userStore.user);
   if (request.meta.auth) {
-    console.log("!");
     switch (request.meta.auth) {
       case "user":
         if (!userStore.user) {

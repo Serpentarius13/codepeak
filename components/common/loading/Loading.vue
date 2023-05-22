@@ -8,10 +8,13 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
-  size: number | string;
-  duration: number | string;
-}>();
+const props = withDefaults(
+  defineProps<{
+    size: number | string;
+    duration?: number | string;
+  }>(),
+  { duration: 1000 }
+);
 </script>
 
 <style scoped lang="scss">
