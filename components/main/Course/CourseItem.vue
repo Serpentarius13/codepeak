@@ -1,10 +1,6 @@
 <template>
   <article
-    :class="[
-      'grid w-full grid-cols-[0.3fr_0.7fr] gap-[6.4rem] xl:gap-[2rem] rounded-big lg:flex-col lg:flex ',
-      !color && 'borderline-transparent',
-    ]"
-    :style="color && { backgroundColor: color, color: '#fff' }"
+    class="group grid w-full grid-cols-[0.3fr_0.7fr] gap-[6.4rem] rounded-big hover:bg-orange-bright xl:gap-[2rem] lg:flex lg:flex-col"
   >
     <NuxtImg
       class="h-full w-full rounded-big object-cover"
@@ -12,11 +8,11 @@
       alt="Заставка курса"
     />
 
-    <div class="flex w-full justify-between px-[6.4rem] py-[2.9rem] xl:gap-[2rem] xl:px-[3.5rem] sm:flex-col">
+    <div
+      class="flex w-full justify-between px-[6.4rem] py-[2.9rem] xl:gap-[2rem] xl:px-[3.5rem] sm:flex-col "
+    >
       <div class="flex max-w-[29.7rem] flex-col gap-[1.6rem]">
-      
-
-        <CommonReusedCardStatus :color="color">
+        <CommonReusedCardStatus class="group-hover:!text-orange-bright">
           Топовый курс
         </CommonReusedCardStatus>
 
@@ -26,7 +22,7 @@
       </div>
 
       <div class="flex items-start gap-[7.1rem] xl:gap-[3rem] md:flex-col">
-        <MainCourseList name="Кураторы курса" :color="color">
+        <MainCourseList name="Кураторы курса" >
           <li
             v-for="{ name, img } in authors"
             :key="name"
@@ -46,7 +42,7 @@
           </li>
         </MainCourseList>
 
-        <MainCourseList name="Прогресс" :color="color">
+        <MainCourseList name="Прогресс">
           <li class="flex items-center gap-[1.2rem]">
             <NuxtIcon name="flag" class="aspect-square w-[1.4rem]" />
             <span> {{ progress }}%</span>
@@ -59,10 +55,9 @@
 </template>
 
 <script setup lang="ts">
-import { colors } from "~/features/constants/colors.constants";
 import { ICourse } from "~/features/types/courses.types";
 
-const props = defineProps<ICourse & { color?: string }>();
+const props = defineProps<ICourse>();
 
 interface ICourseAuthor {
   name: string;

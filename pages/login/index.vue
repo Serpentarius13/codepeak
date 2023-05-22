@@ -4,6 +4,12 @@
   </main>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+
+definePageMeta({
+  auth: "guest",
+
+});
+</script>
 
 <style scoped lang="scss"></style>

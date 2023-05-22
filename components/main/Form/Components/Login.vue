@@ -3,13 +3,11 @@
     <form class="form-component" @submit.prevent="handleSubmit">
       <CommonInputText
         placeholder="Ваш емейл"
-    
         v-model="email"
         :error="errors.email"
       />
       <CommonInputText
         placeholder="Пароль"
-    
         type="password"
         v-model="password"
         :error="errors.password"
@@ -36,18 +34,9 @@
 
 <script setup lang="ts">
 import { z } from "zod";
-const validationSchema = toTypedSchema(
-  z.object({
-    email: z
-      .string()
-      .nonempty("Введите емейл")
-      .email("Введите правильный емейл"),
+import { loginSchema } from "~/features/types/auth.types";
 
-    password: z.string().nonempty("Введите пароль"),
-  })
-);
-
-const { handleSubmit, errors } = useForm({ validationSchema });
+const { handleSubmit, errors } = useForm({ validationSchema: toTypedSchema(loginSchema)  });
 
 const { value: email } = useField("email");
 const { value: password } = useField("password");

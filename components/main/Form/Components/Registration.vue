@@ -21,7 +21,6 @@
       <CommonInputError :error="errors.date">
         <vue-date-picker
           placeholder="Дата рождения"
-       
           locale="ru"
           :max-date="new Date('2011-01-01')"
           v-model="date"
@@ -35,18 +34,19 @@
         placeholder="Пароль"
         v-model="password"
         :error="errors.password"
+        type="password"
       />
 
       <CommonInputError :error="confirmError">
-        <CommonInputText placeholder="Повторите пароль" v-model="confirm" />
+        <CommonInputText
+          placeholder="Повторите пароль"
+          v-model="confirm"
+          type="password"
+        />
       </CommonInputError>
 
       <div class="flex flex-col gap-[1rem]">
-        <CommonButton
-          variant="blue"
-          size="small"
-          class="w-full"
-          type="submit"
+        <CommonButton variant="blue" size="small" class="w-full" type="submit"
           >Зарегестрироваться</CommonButton
         >
 
@@ -67,41 +67,20 @@
 import { toTypedSchema } from "@vee-validate/zod";
 
 import { z } from "zod";
+import { registerSchema } from "~/features/types/auth.types";
+import sleep from "~/features/utils/sleep";
+import useToastStore from "~/stores/useToastStore";
+import { useUserStore } from "~/stores/useUser";
 
-const passwordRegex = z
-  .string()
-  .min(8, "Пароль должен иметь как минимум 8 символов")
-  .regex(
-    /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[^\w\s]).{8,}$/,
-    "В пароле должен быть как минимум один специальный символ и одна цифра"
-  );
-
-const validationSchema = toTypedSchema(
-  z.object({
-    email: z
-      .string()
-      .nonempty("Введите емейл")
-      .email("Введите правильный емейл"),
-    name: z
-      .string()
-      .nonempty("Введите имя")
-      .max(100, "Имя не может иметь больше ста символов"),
-    phone: z
-      .string()
-      .nonempty("Введите телефон")
-      .min(10, "Телефон должен иметь как минимум 10 символов")
-      .max(20, "Телефон не может иметь больше 20 символов")
-      .regex(/^[-+]?(\d+)$/, "Введите правильный телефон"),
-
-    password: passwordRegex,
-    confirm: passwordRegex,
-    date: z.date(),
-  })
-);
-
-const { handleSubmit, errors } = useForm({ validationSchema });
+const { handleSubmit, errors } = useForm({
+  validationSchema: toTypedSchema(registerSchema),
+});
 
 const confirmError = ref<string | null>(null);
+
+const userStore = useUserStore();
+const toast = useToastStore();
+const router = useRouter();
 
 const { value: email } = useField("email");
 const { value: name } = useField("name");
@@ -120,10 +99,19 @@ watch(errors, () => {
   console.log(errors.value);
 });
 
-const onSubmit = handleSubmit((values) => {
+const onSubmit = handleSubmit(async (values) => {
   if (confirmError.value) return;
 
-  console.log(values);
+  const { confirm, date, ...rest } = values;
+
+  try {
+    await userStore.register(rest);
+    toast.success({ text: "Вы успешно вошли!" });
+
+    await sleep(400);
+
+    router.push("/profile");
+  } catch (error) {}
 });
 </script>
 
@@ -137,5 +125,10 @@ const onSubmit = handleSubmit((values) => {
   --dp-font-size: 1.6rem;
   --dp-font-color: black;
   --dp-font-family: "Suisse Intl", sans-serif;
+  --dp-input-icon-padding: 5rem;
+}
+
+.dp__main input {
+  height: 5rem;
 }
 </style>

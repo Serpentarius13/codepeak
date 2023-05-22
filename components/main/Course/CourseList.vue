@@ -1,10 +1,9 @@
 <template>
-  <div class="flex max-w-[18.8rem] flex-col gap-[2.2rem]">
+  <div
+    class="flex max-w-[18.8rem] flex-col gap-[2.2rem] group-hover:text-white"
+  >
     <span
-      :class="[
-        ' text-smallest flex  items-center justify-center rounded-biggest px-[1.6rem] py-[1rem] w-fit',
-        color ? 'borderline-white text-white' : 'borderline-transparent',
-      ]"
+      class="text-smallest color borderline-white text-whiteborderline-transparent flex w-fit items-center justify-center rounded-biggest px-[1.6rem] py-[1rem]"
     >
       {{ name }}
     </span>

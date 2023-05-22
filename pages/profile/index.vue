@@ -4,7 +4,7 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({ layout: "profile-subs" });
+definePageMeta({ layout: "profile-subs", auth: "user"});
 </script>
 
 <style scoped lang="scss"></style>

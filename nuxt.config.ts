@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   css: ["@/styles/main.scss"],
   runtimeConfig: {
     public: {
-      apiBase: "http://localhost:7000/training",
+      apiBase: process.env.API_URL,
       baseUrl: process.env.BASE_URL,
     },
   },
@@ -25,5 +25,9 @@ export default defineNuxtConfig({
         propsDestructure: true,
       },
     },
+  },
+
+  experimental: {
+    typedPages: true,
   },
 });
