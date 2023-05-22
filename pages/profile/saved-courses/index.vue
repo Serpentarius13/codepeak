@@ -1,5 +1,5 @@
 <template>
-  <PagedCourseLesson />
+  <PagesCourseSavedPage />
 </template>
 
 <script setup lang="ts"></script>

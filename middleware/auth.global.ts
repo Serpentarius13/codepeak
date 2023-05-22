@@ -1,4 +1,4 @@
-import { useUserStore } from "~/stores/useUser";
+import { useUserStore } from "~/stores/useUserStore";
 
 export default defineNuxtRouteMiddleware(async (request) => {
   if (process.server) return;

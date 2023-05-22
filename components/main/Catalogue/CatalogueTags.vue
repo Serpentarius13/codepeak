@@ -1,8 +1,11 @@
 <template>
-  <ul class="flex flex-col gap-[1.2rem] h-auto relative">
+  <ul class="relative flex h-auto flex-col gap-[1.2rem]">
     <li>
       <button
-        :class="['tag borderline-transparent text-medium', conditionalClass(tags.every((t) => !isExists(t)))]"
+        :class="[
+          'tag borderline-transparent text-medium',
+          conditionalClass(tags.every((t) => !isExists(t))),
+        ]"
         :style="conditionalStyle(tags.every((t) => !isExists(t)))"
         @click="removeAll"
       >
@@ -12,7 +15,10 @@
     <li v-for="tag in tags" :key="tag.slug">
       <button
         @click="emit('tagged', tag)"
-        :class="['tag borderline-transparent text-medium', conditionalClass(isExists(tag))]"
+        :class="[
+          'tag borderline-transparent text-medium',
+          conditionalClass(isExists(tag)),
+        ]"
         :style="conditionalStyle(isExists(tag))"
       >
         {{ tag.name }}
@@ -34,13 +40,13 @@ const props = defineProps<{
 const emit = defineEmits<{ tagged: [tag: ITag] }>();
 
 const conditionalClass = (isActive?: boolean) =>
-  props.bgColor && isActive ? "text-white border-black" : "border-white";
+  props.bgColor && isActive ? "text-white " : "borderline-transparent";
 const conditionalStyle = (isActive?: boolean) =>
   props.bgColor && isActive ? { backgroundColor: props.bgColor } : {};
 </script>
 
 <style scoped lang="scss">
 .tag {
-  @apply  flex h-full w-full items-center justify-center rounded-biggest bg-white px-[2.2rem] py-[1.6rem] transition-all active:scale-95 ;
+  @apply flex h-full w-full items-center justify-center rounded-biggest bg-white px-[2.2rem] py-[1.6rem] transition-all active:scale-95;
 }
 </style>

@@ -6,7 +6,7 @@
       @select="selectOption"
     >
       <template #button>
-        <PagedMentorshipStepsTechnologyItem
+        <PagesMentorshipStepsTechnologyItem
           :name="modelValue.name"
           :img="modelValue.img"
         />
@@ -23,7 +23,7 @@
             class="text-small h-full w-full p-[1rem]"
             type="button"
           >
-            <PagedMentorshipStepsTechnologyItem
+            <PagesMentorshipStepsTechnologyItem
               :name="option.name"
               :img="option.img"
             />

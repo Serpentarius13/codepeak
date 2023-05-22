@@ -17,28 +17,28 @@
         </h2>
 
         <template v-if="currentStep === 1">
-          <PagedMentorshipStepsTechnologySelect v-model="tech" />
-          <PagedMentorshipStepsNextBtn @click="handleGoFromSelect" />
+          <PagesMentorshipStepsTechnologySelect v-model="tech" />
+          <PagesMentorshipStepsNextBtn @click="handleGoFromSelect" />
         </template>
 
         <template v-else-if="currentStep === 2">
-          <PagedMentorshipStepsDetails
+          <PagesMentorshipStepsDetails
             v-model="details.text"
             @files="handleFiles"
           />
-          <PagedMentorshipStepsNextBtn @click="handleGoFromDetails" />
+          <PagesMentorshipStepsNextBtn @click="handleGoFromDetails" />
         </template>
 
         <template v-else-if="currentStep === 3">
-          <PagedMentorshipStepsCalendar
+          <PagesMentorshipStepsCalendar
             @date="handleDate"
             :selected="dateRef"
           />
-          <PagedMentorshipStepsNextBtn @click="handleGoFromDate" />
+          <PagesMentorshipStepsNextBtn @click="handleGoFromDate" />
         </template>
 
         <template v-else-if="currentStep === 4">
-          <PagedMentorshipStepsCall />
+          <PagesMentorshipStepsCall />
         </template>
       </div>
     </Transition>

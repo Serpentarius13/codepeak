@@ -20,6 +20,21 @@
       </span>
     </div>
   </header>
+
+  <div class="mx-auto w-full flex items-center justify-center mb-[5rem] mt-[12.6rem]">
+    <CommonButton variant="blue" size="medium" v-if="userStore.user">
+      Добавить курс
+    </CommonButton>
+
+    <NuxtLink
+      href="/subscriptions"
+      v-else
+      class="text-big opacity-30 hover:opacity-100"
+    >
+      Требуется подписка Sunlight
+    </NuxtLink>
+  </div>
+
   <section class="container-big mt-[7.5rem] flex flex-col gap-[5rem]">
     <div
       class="grid w-full grid-cols-[0.6fr_0.3fr] justify-between md:flex md:flex-col md:gap-[3rem]"
@@ -84,7 +99,7 @@
       <h2 class="heading-huge">Структура курса</h2>
 
       <div
-        class="relative h-[7.2rem] w-[12rem] -translate-y-[1rem] "
+        class="relative h-[7.2rem] w-[12rem] -translate-y-[1rem]"
         tabindex="0"
       >
         <div
@@ -133,7 +148,9 @@
         <CommonIconsSlack />
       </div>
 
-      <div class="text-big flex gap-[11.7rem] xl:gap-[7rem] lg:gap-[4rem] md:flex-wrap">
+      <div
+        class="text-big flex gap-[11.7rem] xl:gap-[7rem] lg:gap-[4rem] md:flex-wrap"
+      >
         <p class="max-w-[32.5rem]">
           >68% выпускников устраиваются на работу в течение прохождения курса
         </p>
@@ -240,6 +257,7 @@
 
 <script setup lang="tsx">
 import { courses } from "~/features/constants/courses.constants";
+import { useUserStore } from "~/stores/useUserStore.js";
 
 type TAdvantage = { title: string; text: string };
 
@@ -273,6 +291,8 @@ const teacherPerks: TTeacherPerk[] = [
   { num: ">100.000", text: "Человек прошли через курсы, которые создал Саша" },
   { num: "12", text: "Лет работает JS-программистом" },
 ];
+
+const userStore = useUserStore();
 </script>
 
 <style scoped lang="scss">

@@ -70,7 +70,7 @@ import { z } from "zod";
 import { registerSchema } from "~/features/types/auth.types";
 import sleep from "~/features/utils/sleep";
 import useToastStore from "~/stores/useToastStore";
-import { useUserStore } from "~/stores/useUser";
+import { useUserStore } from "~/stores/useUserStore.js";
 
 const { handleSubmit, errors } = useForm({
   validationSchema: toTypedSchema(registerSchema),

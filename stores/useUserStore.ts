@@ -42,9 +42,10 @@ export const useUserStore = defineStore("user-store", {
       }
     },
 
-    async loginWithToken() {
+    async loginWithToken(triggerLoading: boolean = true) {
       try {
-        this.load();
+        if (triggerLoading) this.load();
+
         const { apiLoginWithToken } = useAuth();
         const router = useRouter();
 
@@ -57,7 +58,7 @@ export const useUserStore = defineStore("user-store", {
         this.timeout = setTimeout(() => {
           this.user = null;
 
-          this.loginWithToken();
+          this.loginWithToken(false);
         }, 20000);
 
         if (typeof user === "object") this.user = user;

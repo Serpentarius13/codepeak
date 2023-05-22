@@ -1,9 +1,9 @@
 <template>
-  <PagedMentorship />
+  <PagesMentorship />
 </template>
 
 <script setup lang="ts">
-definePageMeta({ layout: "mentorship" });
+definePageMeta({ layout: "mentorship", auth: "user" });
 </script>
 
 <style scoped lang="scss"></style>

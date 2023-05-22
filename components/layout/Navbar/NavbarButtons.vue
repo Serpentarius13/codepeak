@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { useUserStore } from "~/stores/useUser";
+import { useUserStore } from "~/stores/useUserStore.js";
 
 const store = useUserStore();
 </script>
