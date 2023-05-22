@@ -2,7 +2,6 @@ import { defineStore } from "pinia";
 
 import { extend } from "@vue/shared";
 
-import ModalSolution from "~/components/widgets/Modal/ModalSolution.vue";
 import { lockBody, unlockBody } from "~/features/utils/overflow";
 
 const component = extend({});
@@ -43,10 +42,6 @@ const useModalStore = defineStore("modalStore", {
       this.modalState = basicState;
 
       unlockBody();
-    },
-
-    openSolutionModal(solution: string) {
-      this.openModal({ component: ModalSolution, props: { solution } });
     },
   },
 });

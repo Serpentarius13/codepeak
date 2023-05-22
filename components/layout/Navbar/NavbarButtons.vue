@@ -36,7 +36,7 @@ import { useUserStore } from "~/stores/useUserStore.js";
 
 const store = useUserStore();
 
-const isNotificationsOpened = ref<boolean>(true);
+const isNotificationsOpened = ref<boolean>(false);
 
 const openNotifications = () => (isNotificationsOpened.value = true);
 const closeNotifications = () => (isNotificationsOpened.value = false);

@@ -1,10 +1,21 @@
 <template>
-  <PagesProfileHeader class="mt-[11.6rem] sm:mt-[10rem]" />
-  <PagesProfileTariffs class="mt-[12rem] sm:mt-[3rem]" />
+  <PagesProfileHeader />
+
+  <div class="container-big pt-[2.6rem]">
+    <PagesProfileAchievements />
+  </div>
 </template>
 
 <script setup lang="ts">
-definePageMeta({ layout: "profile-subs", auth: "user"});
+import useModalStore from "~/stores/useModalStore";
+
+import ModalAchievement from "~/components/widgets/Modal/ModalAchievement.vue";
+
+const modalStore = useModalStore();
+
+onMounted(() => {
+  modalStore.openModal({ component: ModalAchievement });
+});
 </script>
 
 <style scoped lang="scss"></style>
