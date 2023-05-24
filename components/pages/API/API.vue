@@ -16,7 +16,7 @@
 
     <ul class="griddy grid gap-[2.5rem]">
       <li v-for="api in apis" :key="api.name">
-        <MainAPIItem v-bind="api" />
+        <PagesAPIItem v-bind="api" />
       </li>
     </ul>
   </section>

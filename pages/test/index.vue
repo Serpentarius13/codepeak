@@ -7,14 +7,17 @@
 </template>
 
 <script setup lang="ts">
-//@ts-expect-error No types
-import binking from "binking";
 import { tariffs } from "~/features/constants/tariffs.constants";
+import toaster from "vue-toastification";
 
 const router = useRouter();
 
+const { $toast } = useNuxtApp();
+
 onMounted(() => {
   if (process.env.NODE_ENV !== "development") router.push("/");
+
+  $toast.success("!");
 });
 </script>
 

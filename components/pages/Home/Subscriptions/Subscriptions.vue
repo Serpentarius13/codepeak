@@ -14,15 +14,15 @@
       />
     </div>
 
-    <MainTariffSubscriptions @add="handleAdd">
+    <PagesHomeSubscriptionsTariffSubscriptions @add="handleAdd">
       <li>
-        <MainTariffCheckout
+        <PagesHomeSubscriptionsTariffCheckout
           :discount="discount"
           :name="currentTariff"
           :price="tariffs.find(t => t.name === currentTariff)!.price"
         />
       </li>
-    </MainTariffSubscriptions>
+    </PagesHomeSubscriptionsTariffSubscriptions>
   </section>
 </template>
 

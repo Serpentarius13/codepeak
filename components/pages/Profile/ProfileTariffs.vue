@@ -30,7 +30,7 @@
       </div>
     </div>
 
-    <MainTariff
+    <PagesProfileTariff
       v-for="tariff in tariffs"
       :key="tariff.price"
       class="h-full"

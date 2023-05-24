@@ -92,7 +92,7 @@ import { colors } from "~/features/constants/colors.constants";
 import { tariffs } from "~/features/constants/tariffs.constants";
 import { ICourse } from "~/features/types/courses.types";
 
-import useTag from "~/features/hooks/useTags";
+import useTag from "~/composables/useTags.js";
 
 const makeTags = (map: Record<string, string>) =>
   Object.keys(map).map((key) => ({ slug: key, name: map[key] }));

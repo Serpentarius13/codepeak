@@ -1,4 +1,4 @@
-import { ITag } from "../types/shared.types";
+import { ITag } from "../features/types/shared.types";
 
 export default function useTag() {
   const tags = ref<ITag[]>([]);
@@ -7,8 +7,6 @@ export default function useTag() {
     return !!tags.value.find((t) => t.slug === tag.slug);
   }
 
-
-
   function toggleTag(tag: ITag) {
     isTagInTags(tag)
       ? (tags.value = tags.value.filter((t) => t.slug !== tag.slug))
@@ -16,10 +14,8 @@ export default function useTag() {
   }
 
   function removeAll() {
-    tags.value = []
+    tags.value = [];
   }
-
-
 
   return { tags, toggleTag, isTagInTags, removeAll };
 }
