@@ -1,12 +1,15 @@
 <template>
   <table class="text-[2rem] lg:text-[1.6rem] md:text-[1.4rem]">
-    <caption
-      class="text-big md:text-medium pb-[5.2rem] text-start md:pb-[3rem] md:font-bold sm:pb-[2rem] xs:pb-[1rem]"
-    >
-      {{
-        caption
-      }}
-    </caption>
+    <thead>
+      <tr>
+        <th>
+          <slot name="thead" />
+        </th>
+
+        <slot name="tdata" />
+      </tr>
+    </thead>
+
     <tbody>
       <tr
         v-for="{ title, values } in data"
@@ -26,7 +29,7 @@
           :style="
             typeof value === 'object' && value.isBad ? { opacity: '40%' } : {}
           "
-          class="w-[45.7rem] py-[2.6rem] text-center before:hidden lg:pt-[4rem] lg:before:block"
+          class="w-[45.7rem] py-[2.6rem]  text-center before:hidden lg:pt-[4rem] lg:before:block"
         >
           {{ typeof value === "string" ? value : value.value }}
         </td>

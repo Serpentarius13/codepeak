@@ -1,49 +1,35 @@
 <template>
-  <section
-    class="container-big relative z-[10] grid grid-cols-[0.2fr_0.3fr_0.3fr_0.3fr] grid-rows-[0.3fr_1fr] gap-x-[2.6rem] overflow-x-auto pt-[0.7rem] lg:grid-cols-3 lg:gap-x-[1.2rem]"
-  >
-    <div
-      class="flex flex-col gap-[3.2rem] pr-[2rem] lg:col-span-4 lg:mb-[2rem] lg:items-center lg:pr-0"
-    >
-      <div
-        class="flex w-[33rem] flex-col gap-[1.6rem] xl:w-[20rem] lg:w-full lg:flex-row lg:items-center sm:flex-col sm:items-start"
-      >
-        <h2 class="heading-small lg:heading">Подписки</h2>
-        <p class="text-medium lg:text-big">
-          Управляйте вашими подписками в несколько кликов
-        </p>
-      </div>
-
-      <div
-        class="text-medium borderline-transparent flex w-fit gap-[0.5rem] rounded-semi-big p-[0.6rem] text-black transition-all child:rounded-semi-big child:px-[4.8rem] child:py-[0.6rem] child:transition-all xl:flex-col lg:w-full"
-      >
-        <button :class="[isMonth && activeClass]" @click="toggleDuration(true)">
-          Месяц
-        </button>
-
-        <button
-          :class="[!isMonth && activeClass]"
-          @click="toggleDuration(false)"
-        >
-          год
-        </button>
-      </div>
-    </div>
-
-    <LazyPagesProfileTariffsProfileTariff
-      v-for="tariff in tariffs"
-      :key="tariff.price"
-      class="h-full"
-      v-bind="tariff"
-      :is-month="isMonth"
+  <section class="container-big relative z-[50] flex flex-col gap-[3rem]">
+    <PagesProfileTariffsToggler
+      :handleDuration="setDuration"
+      :isMonth="isMonth"
+      class="mt-[4rem] hidden lg:flex"
     />
+    <CommonTable :data="table" caption="Ключевые функции">
+      <template #thead>
+        <PagesProfileTariffsToggler
+          class="lg:hidden"
+          :handleDuration="setDuration"
+          :isMonth="isMonth"
+        />
+      </template>
 
-    <div
-      class="col-span-4 flex w-full min-w-[90vw] flex-col gap-[10rem] pt-[6.6rem] !text-start md:gap-[5rem] sm:pt-[2rem]"
-    >
-      <CommonTable :data="table" caption="Ключевые функции" />
-      <CommonTable :data="tableTwo" caption="Дополнительные гарантии" />
-    </div>
+      <template #tdata>
+        <td
+          v-for="tariff in tariffs"
+          :key="tariff.price"
+          class="max-w-[15vw]"
+        >
+          <LazyPagesProfileTariffsProfileTariff
+         
+            v-bind="tariff"
+            :is-month="isMonth"   class="!max-w-[23vw] lg:!max-w-[30vw]"
+          />
+        </td>
+      </template>
+    </CommonTable>
+
+    <CommonTable :data="tableTwo" caption="Дополнительные гарантии" />
   </section>
 </template>
 
@@ -53,11 +39,9 @@ import { ITableRow } from "~/features/types/shared.types";
 
 const isMonth = ref<boolean>(true);
 
-function toggleDuration(val: boolean) {
-  isMonth.value = val;
+function setDuration(isMonthe: boolean = true) {
+  isMonth.value = isMonthe;
 }
-
-const activeClass = "bg-black text-white";
 
 const table: ITableRow[] = [
   {
