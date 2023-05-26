@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "nuxt-icons",
     "@vee-validate/nuxt",
     "@nuxt/image-edge",
+    "nuxt-swiper",
   ],
 
   css: ["@/styles/main.scss"],

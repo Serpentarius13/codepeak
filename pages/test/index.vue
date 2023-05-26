@@ -1,8 +1,6 @@
 <template>
   <div class="h-screen w-screen">
-    <div class="w-[40rem]">
-      <MainFormComponentsPayment :current-tariff="tariffs[0]" />
-    </div>
+    <CommonSwiperCourses :courses="courses" />
   </div>
 </template>
 
@@ -10,14 +8,12 @@
 import { tariffs } from "~/features/constants/tariffs.constants";
 import toaster from "vue-toastification";
 
-const router = useRouter();
+import { courses } from "~/features/constants/courses.constants";
 
-const { $toast } = useNuxtApp();
+const router = useRouter();
 
 onMounted(() => {
   if (process.env.NODE_ENV !== "development") router.push("/");
-
-  $toast.success("!");
 });
 </script>
 

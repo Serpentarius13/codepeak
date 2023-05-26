@@ -104,11 +104,10 @@
           v-for="i in 3"
           :key="i"
           :class="[
-            'absolute top-0 h-full w-[5.6rem] rounded-small ',
+            'absolute top-0 block h-full w-[5.6rem] rounded-small ',
             i == 1 ? 'bg-blue' : 'borderline-transparent',
           ]"
           :style="{ left: `${i * 20}%`, zIndex: 3 - i }"
-          :data-position="i"
         />
       </div>
     </div>
@@ -228,25 +227,30 @@
     </div>
   </section>
 
-  <section class="container-big mt-[19rem] flex flex-col gap-[33.1rem]">
+  <section
+    class="container-big mt-[19rem] flex flex-col gap-[33.1rem] lg:mt-[10rem] lg:gap-[10rem] md:mt-[8rem] md:gap-[5rem] sm:mt-[4rem]"
+  >
     <h2 class="heading-huge text-center">Курсы, похожие на эти</h2>
 
-    <div class="flex justify-between">
+    <div class="flex justify-between 2xl:flex-col 2xl:gap-[3rem]">
       <div class="flex flex-col gap-[3rem]">
         <h5 class="text-big">JavaScript</h5>
 
-        <div class="flex gap-[2.5rem]">
+        <div class="flex gap-[2rem] lg:hidden">
           <MainCourseCard
             v-for="course in courses.slice(0, 2)"
             :key="course.id"
             v-bind="course"
           />
         </div>
+
+        <div class="hidden w-[95vw] lg:block">
+          <CommonSwiperCourses :courses="courses" />
+        </div>
       </div>
 
       <div class="flex flex-col gap-[3rem]">
         <h5 class="text-big">От А. Пушкина</h5>
-
         <MainCourseCard v-bind="courses[0]" />
       </div>
     </div>
@@ -296,9 +300,9 @@ const userStore = useUserStore();
 <style scoped lang="scss">
 .cards {
   &:hover,
-  [data-position]:hover,
+  .block:hover,
   &:focus-within {
-    [data-position] {
+    .block {
       @apply transition-all duration-200;
       &:nth-child(2) {
         @apply translate-x-[70%] bg-blue opacity-40 delay-100 hover:opacity-100;
