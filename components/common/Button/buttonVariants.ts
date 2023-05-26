@@ -1,14 +1,6 @@
-<template>
-  <button :class="buttonVariants({ variant, size })">
-    <slot />
-  </button>
-</template>
-
-<script setup lang="ts">
-import { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";
 
-const buttonVariants = cva(
+export const buttonVariants = cva(
   "w-fit flex items-center justify-center border-[1px] border-solid border-transparent transition-standard",
   {
     variants: {
@@ -35,13 +27,3 @@ const buttonVariants = cva(
     },
   }
 );
-
-type ButtonProps = Required<VariantProps<typeof buttonVariants>>;
-
-const props = defineProps<{
-  variant: ButtonProps["variant"];
-  size: ButtonProps["size"];
-}>();
-</script>
-
-<style scoped lang="scss"></style>

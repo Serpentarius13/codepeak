@@ -3,9 +3,7 @@
 
   <main class="relative min-h-screen w-screen bg-white pt-[3rem]">
     <slot />
-    <div
-      class="gradient absolute top-0 min-h-[73.1rem] w-screen sm:min-h-[80rem]"
-    />
+    <div class="gradient absolute top-0 min-h-[48.1rem] w-screen" />
   </main>
 
   <LayoutFooter class="mt-[7.3rem]" />

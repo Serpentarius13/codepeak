@@ -1,9 +1,9 @@
 <template>
-  <PagesMentorship />
+  <NuxtPage />
 </template>
 
 <script setup lang="ts">
-definePageMeta({ layout: "mentorship" });
+definePageMeta({ middleware: "requires-auth" });
 </script>
 
 <style scoped lang="scss"></style>

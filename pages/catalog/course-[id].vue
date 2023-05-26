@@ -1,4 +1,6 @@
-<template><PagesAPI /></template>
+<template>
+  <PagesCoursePage />
+</template>
 
 <script setup lang="ts"></script>
 

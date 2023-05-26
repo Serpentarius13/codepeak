@@ -1,20 +1,18 @@
 import { defineStore } from "pinia";
 
-import { useCookies } from "vue3-cookies";
-
 import { AUTH_COOKIE_KEY } from "~/features/constants/auth.constants";
 import {
   IAccount,
   TLoginData,
   TRegisterData,
 } from "~/features/types/auth.types";
+import { setCookieClient } from "~/features/utils/cookie";
 
 interface IUserStoreState {
   user: IAccount | null;
   isLoading: boolean;
   timeout: NodeJS.Timeout | null;
 }
-const { cookies } = useCookies();
 
 export const useUserStore = defineStore("user-store", {
   state: (): IUserStoreState => ({
@@ -31,7 +29,7 @@ export const useUserStore = defineStore("user-store", {
         const user = await apiLogin(data);
 
         if (typeof user === "object") {
-          cookies.set(AUTH_COOKIE_KEY, user.token);
+          setCookieClient(AUTH_COOKIE_KEY, user.token);
 
           this.user = user.account;
         }
@@ -49,7 +47,7 @@ export const useUserStore = defineStore("user-store", {
         const { apiLoginWithToken } = useAuth();
         const router = useRouter();
 
-        const token = cookies.get(AUTH_COOKIE_KEY);
+        const { value: token } = useCookie(AUTH_COOKIE_KEY);
 
         if (!token) return;
 
@@ -78,7 +76,7 @@ export const useUserStore = defineStore("user-store", {
         const user = await apiRegister(data);
 
         if (typeof user === "object") {
-          cookies.set(AUTH_COOKIE_KEY, user.token);
+          setCookieClient(AUTH_COOKIE_KEY, user.token);
 
           this.user = user.account;
         }
@@ -97,7 +95,7 @@ export const useUserStore = defineStore("user-store", {
   },
   getters: {
     isAuthPossible() {
-      return !!cookies.get(AUTH_COOKIE_KEY);
+      return !!useCookie(AUTH_COOKIE_KEY).value;
     },
   },
 });

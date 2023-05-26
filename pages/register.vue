@@ -5,10 +5,8 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  auth: "guest",
-
-});
+definePageMeta({ middleware: "requires-guest" });
 </script>
 
 <style scoped lang="scss"></style>
+s

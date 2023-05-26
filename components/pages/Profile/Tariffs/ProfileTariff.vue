@@ -34,20 +34,17 @@
       </p>
     </div>
 
-    <NuxtLink
-      :class="[
-        buttonVariants({ variant: 'blue', size: 'small' }),
-        'mt-[4rem] w-full cursor-pointer xl:text-[1.3rem] sm:mt-[1rem] sm:p-[0.3rem] sm:text-[0.7rem] sm:font-bold',
-      ]"
-      :to="`/profile/payment/?course=${props.name}`"
+    <CommonButton
+      variant="blue"
+      size="small"
+      class="mt-[4rem] w-full xl:text-[1.3rem] sm:mt-[1rem] sm:p-[0.3rem] sm:text-[0.7rem] sm:font-bold"
     >
-      Оформить подписку</NuxtLink
+      Оформить подписку</CommonButton
     >
   </article>
 </template>
 
 <script setup lang="ts">
-import { buttonVariants } from "~/components/common/Button/buttonVariants";
 import {
   ITariff,
   ITariffName,

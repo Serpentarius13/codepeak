@@ -21,7 +21,9 @@
     </div>
   </header>
 
-  <div class="mx-auto w-full flex items-center justify-center mb-[5rem] mt-[12.6rem]">
+  <div
+    class="mx-auto mb-[5rem] mt-[12.6rem] flex w-full items-center justify-center"
+  >
     <CommonButton variant="blue" size="medium" v-if="userStore.user">
       Добавить курс
     </CommonButton>
@@ -90,11 +92,7 @@
     </div>
   </section>
 
-  <section
-    class="container-big cards mt-[33.6rem] flex flex-col gap-[12.6rem]"
-    @mouseenter="animateBoxes"
-    @mouseleave="animateBoxes(true)"
-  >
+  <section class="container-big cards mt-[33.6rem] flex flex-col gap-[12.6rem]">
     <div class="flex items-end gap-[1rem] sm:flex-col sm:items-start">
       <h2 class="heading-huge">Структура курса</h2>
 

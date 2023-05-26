@@ -116,7 +116,7 @@ export const courses: ICourse[] = [
       },
     ],
     subscription: "Spotlight",
-    duration: '1'
+    duration: "1",
   },
   {
     id: 1,
@@ -200,16 +200,16 @@ export const courses: ICourse[] = [
       },
     ],
     subscription: "Sunlight",
-    duration: '5'
+    duration: "5",
   },
   {
     id: 1,
-    name: "C# Developer",
+    name: "devops",
     description:
       "Мы приветствуем тебя на курсе C# разработчика. Мы сделали все, чтобы данный курс был максимально по душе вам!",
     query: "csharp-developer",
     lang: "javascript",
-    direction: 'frontend',
+    direction: "devops",
     rating: "basic",
     experience: "junior",
     graphic: ["labels"],
@@ -284,6 +284,6 @@ export const courses: ICourse[] = [
       },
     ],
     subscription: "Dark",
-    duration: '12'
+    duration: "12",
   },
 ];
