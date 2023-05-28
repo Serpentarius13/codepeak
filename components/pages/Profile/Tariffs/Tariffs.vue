@@ -1,14 +1,16 @@
 <template>
-  <section class="container-big relative z-[50] flex flex-col gap-[3rem]">
+  <section
+    class="container-big relative z-[50] flex flex-col gap-[10rem] lg:gap-[4rem]"
+  >
     <PagesProfileTariffsToggler
       :handleDuration="setDuration"
       :isMonth="isMonth"
-      class="mt-[4rem] hidden lg:flex"
+      class="mt-[4rem] hidden lg:mt-[2rem] lg:flex"
     />
     <CommonTable :data="table" caption="Ключевые функции">
       <template #thead>
         <PagesProfileTariffsToggler
-          class="lg:hidden"
+          class="pb-[4rem] lg:hidden"
           :handleDuration="setDuration"
           :isMonth="isMonth"
         />
@@ -18,12 +20,12 @@
         <td
           v-for="tariff in tariffs"
           :key="tariff.price"
-          class="max-w-[15vw]"
+          class="max-w-[15vw] pb-[3rem]"
         >
           <LazyPagesProfileTariffsProfileTariff
-         
             v-bind="tariff"
-            :is-month="isMonth"   class="!max-w-[23vw] lg:!max-w-[30vw]"
+            :is-month="isMonth"
+            class="!max-w-[23vw] lg:!max-w-[30vw]"
           />
         </td>
       </template>

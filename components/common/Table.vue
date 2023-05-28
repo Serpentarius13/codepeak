@@ -10,6 +10,12 @@
       </tr>
     </thead>
 
+    <h2
+      class="absolute w-full -translate-y-[4rem] lg:text-center text-[2rem] font-bold lg:-translate-y-[3rem] sm:text-[1.6rem] xs:text-[1.2rem]"
+    >
+      {{ caption }}
+    </h2>
+
     <tbody>
       <tr
         v-for="{ title, values } in data"
@@ -29,7 +35,7 @@
           :style="
             typeof value === 'object' && value.isBad ? { opacity: '40%' } : {}
           "
-          class="w-[45.7rem] py-[2.6rem]  text-center before:hidden lg:pt-[4rem] lg:before:block"
+          class="w-[45.7rem] py-[2.6rem] text-center before:hidden lg:pt-[4rem] lg:before:block"
         >
           {{ typeof value === "string" ? value : value.value }}
         </td>
@@ -45,12 +51,8 @@ defineProps<{ data: ITableRow[]; caption: string }>();
 </script>
 
 <style scoped lang="scss">
-.table-container {
-  overflow-x: auto;
-}
-
 table {
-  width: 100%;
+  @apply w-full;
 }
 
 .beffore {

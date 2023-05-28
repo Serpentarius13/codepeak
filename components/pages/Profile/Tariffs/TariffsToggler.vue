@@ -13,7 +13,7 @@
 
     <div
       class="text-medium borderline-transparent flex w-fit gap-[0.5rem] rounded-semi-big p-[0.6rem] text-black transition-all child:rounded-semi-big child:px-[4.8rem] child:py-[0.6rem] child:transition-all xl:flex-col lg:w-full"
-    >
+    > 
       <button :class="[isMonth && activeClass]" @click="handleDuration(true)">
         Месяц
       </button>
