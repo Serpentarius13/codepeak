@@ -22,9 +22,8 @@ interface INavLink {
 
 const navLinks: INavLink[] = [
   { slug: "/courses", text: "образовательные курсы" },
-  { slug: "/trainer", text: "тарифы и планы" },
-  { slug: "/chat", text: "платформа" },
-  { slug: "/catalog", text: "профориентация" },
+  { slug: "/subscription", text: "тарифы и планы" },
+  { slug: "/catalog", text: "каталог" },
 ];
 </script>
 
