@@ -1,14 +1,15 @@
 <template>
   <div
-    class="relative inline-block text-left w-full"
+    class="relative inline-block w-full text-left"
     @keyup.down.stop.passive.capture="handleGoDown"
     @keyup.up.stop.passive.capture="handleGoUp"
     ref="selectRef"
+    v-click-away="closeSelect"
   >
     <button
       type="button"
       :class="[
-        'flex items-center w-full justify-between gap-[0.8rem] borderline-transparent transition-all rounded-semi-big  px-[1.6rem] py-[0.8rem] text-[1.5rem] text-opacity-30 ',
+        'borderline-transparent flex w-full items-center justify-between gap-[0.8rem] rounded-semi-big px-[1.6rem]  py-[0.8rem] text-[1.5rem] text-opacity-30 transition-all ',
         isSelectOpened && '!border-black',
       ]"
       id="menu-button"
@@ -19,16 +20,13 @@
       <slot name="button" :currentOption="{ currentOption }" />
       <NuxtIcon
         name="arrow-down"
-        :class="[
-          ' text-black  transition-all',
-          isSelectOpened && 'rotate-180',
-        ]"
+        :class="[' text-black  transition-all', isSelectOpened && 'rotate-180']"
       />
     </button>
 
     <Transition name="menu">
       <ul
-        class="w-full max-h-[20vh] overflow-auto  absolute left-0 z-10 mt-2 origin-top-right rounded-md border-[1px] border-black bg-white shadow-lg ring-white ring-opacity-5 focus:ring-1"
+        class="absolute left-0 z-10 mt-2 max-h-[20vh] w-full origin-top-right overflow-auto rounded-md border-[1px] border-black bg-white shadow-lg ring-white ring-opacity-5 focus:ring-1"
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="menu-button"
@@ -76,6 +74,10 @@ function selectOption(option: string) {
 
 function toggleSelect() {
   isSelectOpened.value = !isSelectOpened.value;
+}
+
+function closeSelect() {
+  isSelectOpened.value = false;
 }
 
 function handleGoDown() {

@@ -9,7 +9,7 @@ import {
 import { setCookieClient } from "~/features/utils/cookie";
 
 interface IUserStoreState {
-  user: IAccount | null;
+  user: Partial<IAccount> | null;
   isLoading: boolean;
   timeout: NodeJS.Timeout | null;
 }
