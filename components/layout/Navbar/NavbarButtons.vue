@@ -28,6 +28,13 @@
       v-if="isNotificationsOpened"
       @close="closeNotifications"
     />
+
+    <button
+      @click="store.logout"
+      class="rotate-180 opacity-30 hover:opacity-100"
+    >
+      <NuxtIcon name="sign-in" />
+    </button>
   </nav>
 </template>
 

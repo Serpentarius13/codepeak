@@ -16,7 +16,7 @@ interface IUserStoreState {
 
 export const useUserStore = defineStore("user-store", {
   state: (): IUserStoreState => ({
-    user: null,
+    user: {},
     isLoading: false,
     timeout: null,
   }),
@@ -85,6 +85,9 @@ export const useUserStore = defineStore("user-store", {
       } finally {
         this.unload();
       }
+    },
+    logout() {
+      this.user = null;
     },
     load() {
       this.isLoading = true;

@@ -1,5 +1,5 @@
 <template>
-  <ul class="flex gap-[4rem] text-[1.7rem] text-black">
+  <ul class="flex gap-[4rem] text-[1.7rem] text-black lowercase">
     <li v-for="{ slug, text } in navLinks" :key="text">
       <NuxtLink
         :to="slug"
@@ -24,6 +24,8 @@ const navLinks: INavLink[] = [
   { slug: "/courses", text: "образовательные курсы" },
   { slug: "/subscription", text: "тарифы и планы" },
   { slug: "/catalog", text: "каталог" },
+  { slug: "/mentor", text: "Менторство" },
+  { slug: "/payment", text: "Оплата" },
 ];
 </script>
 
